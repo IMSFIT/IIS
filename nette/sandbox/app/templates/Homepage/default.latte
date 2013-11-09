@@ -1,0 +1,24 @@
+{block content}
+
+<h1>Nesplněné úkoly</h1>
+
+<table>
+    <thead>
+    <tr>
+        <th>Čas vytvoření</th>
+        <th>Úkol</th>
+        <th>Přiřazeno</th>
+    </tr>
+    </thead>
+    <tbody>
+    {foreach $tasks as $task}
+    <tr>
+        <td>{$task->oddelenie'}</td>
+        <td>{$task->preferovane_jidlo}</td>
+        <td>{$task->user->stav}</td>
+    </tr>
+    {/foreach}
+    </tbody>
+</table>
+
+{/block}
