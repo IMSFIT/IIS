@@ -7,9 +7,9 @@ use Nette;
  */
 class PacientRepository extends Repository
 {
-	public function findIncomplete()
+	/*public function findIncomplete()
 {
     return $this->findBy(array('done' => false))->order('created ASC');
-}
+}*/
 }
 

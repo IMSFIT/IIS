@@ -5,7 +5,7 @@ use Nette;
 /**
  * Tabulka user
  */
-class UctyRepository extends Repository
+class UserRepository extends Repository
 {
 	/*public function find()
 	{

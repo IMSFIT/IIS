@@ -6,6 +6,6 @@ use Nette;
 /**
  * Tabulka jidla
  */
-class JidlaRepository extends Repository
+class JidloRepository extends Repository
 {
 }
