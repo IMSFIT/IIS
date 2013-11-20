@@ -13,9 +13,9 @@
     <tbody>
     {foreach $tasks as $task}
     <tr>
-        <td>{$task->oddelenie'}</td>
+        <td>{$task->oddeleni}</td>
         <td>{$task->preferovane_jidlo}</td>
-        <td>{$task->user->stav}</td>
+        <td>{$task->stav}</td>
     </tr>
     {/foreach}
     </tbody>

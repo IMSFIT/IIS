@@ -3,9 +3,9 @@ namespace Todo;
 use Nette;
 
 /**
- * Tabulka user
+ * Tabulka pokoj
  */
-class Ucty extends Repository
+class PokojRepository extends Repository
 {
 	public function findIncomplete()
 {

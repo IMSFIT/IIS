@@ -28,14 +28,14 @@ common:
 		routerFactory: RouterFactory
 		router: @routerFactory::createRouter
 		
-		jidla: Todo\Jidla
-		typdiety: Todo\TypDiety
-		objednavka: Todo\Objednavka
-		pacient: Todo\Pacient
-		pokoj: Todo\Pokoj
-		suroviny: Todo\Suroviny
-		ucty:	Todo\Ucty
-		jidelnicek: Todo\Jidelnicek
+		jidlaRepository: Todo\JidlaRepository
+		typdietyRepository: Todo\TypDietyRepository
+		objednavkaRepository: Todo\Objednavka_Na_KuchynRepository
+		pacientRepository: Todo\PacientRepository
+		
+		surovinyRepository: Todo\SurovinyRepository
+		uctyRepository:	Todo\UctyRepository
+		jidelnicekRepository: Todo\JidelnicekRepository
 		
 
 
