@@ -49,7 +49,37 @@ class Objednavka_Na_KuchynRepository extends Repository
                         'preferovane_jidlo' => $jidlo,
                 ));
         }
+		
+	public function deleteObjednavka($id)
+      {
+                return $this->findBy(array('id_objednavky' => $id))->delete();
+      }
+	  
+	 public function updateObjednavka($id,$stav)
+      {
+                				return $this->findBy(array('id_objednavky' => $id))->update( 
+				array('stav' => $stav)
+				);
+				
+      }
+	  
+	   public function update2Objednavka($id,$oddelenie,$stav,$jedlo)
+      {
+                 return $this->findBy(array('id_objednavky' => $id))->update( 
+				array('stav' => $stav,'oddeleni' => $oddelenie,'preferovane_jidlo' => $jedlo));
+      }
 	
+	public function findBy2($id)
+	{
+    	return $this->findBy(array('id_objednavky' => $id))->order('oddeleni ASC');
+	}
+	
+	public function updateJedlo($id,$jedlo)
+	{
+		
+	   return $this->findBy(array('id_objednavky' => $id))->update( 
+				array('preferovane_jidlo' => $jedlo));
+	}
 	
 	
 }

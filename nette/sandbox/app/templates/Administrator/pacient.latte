@@ -1,5 +1,21 @@
 {block content}
 
+<div class="left">
+<a n:href="Administrator:objednavka ">Zobrazenie objednávok</a>
+<a n:href="Administrator:deleteeditdefault">Mazanie a Editovanie Objednávok</a>
+<a n:href="Administrator:adddefault">Pridanie objednávok</a>
+<a n:href="Administrator:user ">Zobrazenie uzivatelov</a>
+<a n:href="Administrator:useradd">Pridávanie užívateľov</a>
+
+<a n:href="Administrator:pacient">Zobrazenie pacientov</a>
+<a n:href="Administrator:deleteedituser">Mazanie a editovanie užívateľov</a>
+
+<a n:href="Administrator:suroviny">Zobrazenie surovín</a>
+<a n:href="Administrator:surovinyadd">Doplnenenie surovín do skladu</a>
+</div>
+
+<hr>
+<div class="center">
 <h1>Zobrazenie pacientov</h1>
 
 <table>
@@ -26,26 +42,16 @@
                         <td>{$pacient->prijmeni}</td>
 						<td>{$pacient->jmeno_osetrujiciho_lekare}</td>
                 	    <td>{$pacient->datum_prijeti}</td>
-						   
+						<td>{$pacient->diety->nazev_diety}</td>
 						<td>{$pacient->zmena_diety}</td>
 						<td>{$pacient->cislo_pokoje}</td>
+						
 						
 				</tr>
      {/foreach}
    
     </tbody>
 </table>
-
-<a n:href="Administrator:objednavka ">Zobrazenie objednávok</a>
-<a n:href="Administrator:deleteeditdefault">Mazanie a Editovanie Objednávok</a>
-<a n:href="Administrator:adddefault">Pridanie objednávok</a>
-<a n:href="Administrator:user ">Zobrazenie uzivatelov</a>
-<a n:href="Administrator:useradd">Pridávanie užívateľov</a>
-
-<a n:href="Administrator:pacient">Zobrazenie pacientov</a>
-<a n:href="Administrator:deleteedituser">Mazanie a editovanie užívateľov</a>
-
-<a n:href="Administrator:suroviny">Zobrazenie surovín</a>
-<a n:href="Administrator:surovinyadd">Doplnenenie surovín do skladu</a>
+</div>
 
 {/block}

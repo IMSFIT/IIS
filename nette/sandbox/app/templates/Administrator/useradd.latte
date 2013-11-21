@@ -1,17 +1,32 @@
-v{block content}
+{block content}
 
 
+
+
+
+
+<div class="left">
+<a n:href="Administrator:objednavka ">Zobrazenie objednávok</a>
+<a n:href="Administrator:deleteeditdefault">Mazanie a Editovanie Objednávok</a>
+<a n:href="Administrator:adddefault">Pridanie objednávok</a>
+<a n:href="Administrator:user ">Zobrazenie uzivatelov</a>
+<a n:href="Administrator:useradd">Pridávanie užívateľov</a>
+
+<a n:href="Administrator:pacient">Zobrazenie pacientov</a>
+<a n:href="Administrator:deleteedituser">Mazanie a editovanie užívateľov</a>
+
+<a n:href="Administrator:suroviny">Zobrazenie surovín</a>
+<a n:href="Administrator:surovinyadd">Doplnenenie surovín do skladu</a>
+</div>
+<hr>
+
+<div class="center">
 <h1>Zobrazenie objednávok a ich mazanie a editácia</h1>
-
-
 <fieldset>
     <legend>Pridať užívateľa</legend>
 
     {control taskForm3}
 </fieldset>
-
-
-
 <table>
     <thead>
     <tr>
@@ -37,18 +52,8 @@ v{block content}
    
     </tbody>
 </table>
+</div>
 
-<a n:href="Administrator:objednavka ">Zobrazenie objednávok</a>
-<a n:href="Administrator:deleteeditdefault">Mazanie a Editovanie Objednávok</a>
-<a n:href="Administrator:adddefault">Pridanie objednávok</a>
-<a n:href="Administrator:user ">Zobrazenie uzivatelov</a>
-<a n:href="Administrator:useradd">Pridávanie užívateľov</a>
-
-<a n:href="Administrator:pacient">Zobrazenie pacientov</a>
-<a n:href="Administrator:deleteedituser">Mazanie a editovanie užívateľov</a>
-
-<a n:href="Administrator:suroviny">Zobrazenie surovín</a>
-<a n:href="Administrator:surovinyadd">Doplnenenie surovín do skladu</a>
 
 
 {/block}

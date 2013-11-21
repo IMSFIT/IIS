@@ -32,18 +32,19 @@ class Authenticator extends Nette\Object implements Security\IAuthenticator
         public function authenticate(array $credentials)
         {
                 list($username, $password) = $credentials;
-                $row = $this->users->findByName($username);
+    			$row = $this->userRepository->findByName($username);
 
-                if (!$row) {
-                        throw new Security\AuthenticationException('The username is incorrect.', self::IDENTITY_NOT_FOUND);
-                }
+			    if (!$row) 
+				{
+        				throw new NS\AuthenticationException("User '$username' not found.", self::IDENTITY_NOT_FOUND);
+    			}
 
-                if ($row->password !== $this->calculateHash($password, $row->password)) {
-                        throw new Security\AuthenticationException('The password is incorrect.', self::INVALID_CREDENTIAL);
-                }
+   				 if ($row->password !== self::calculateHash($password, $row->password)) {
+        			throw new NS\AuthenticationException("Invalid password.", self::INVALID_CREDENTIAL);
+   			 }
 
-                unset($row->password);
-                return new Security\Identity($row->id, NULL, $row->toArray());
+    			unset($row->password);
+    				return new NS\Identity($row->id, NULL, $row->toArray());
         }
 
 
@@ -68,10 +69,11 @@ class Authenticator extends Nette\Object implements Security\IAuthenticator
          */
         public static function calculateHash($password, $salt = NULL)
         {
-                if ($password === Strings::upper($password)) { // perhaps caps lock is on
-                        $password = Strings::lower($password);
-                }
-                return crypt($password, $salt ?: '$2a$07$' . Strings::random(22));
-        }
+               if ($salt === null) 
+			   {
+        		$salt = '$2a$07$' . Nette\Utils\Strings::random(22);
+    			}
+			    return crypt($password, $salt);
+        		}
 
 }

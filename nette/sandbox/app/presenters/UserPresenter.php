@@ -1,5 +1,4 @@
-<?php 
-
+<?php
 use Nette\Application\UI\Form;
 use Nette\Security as NS;
 

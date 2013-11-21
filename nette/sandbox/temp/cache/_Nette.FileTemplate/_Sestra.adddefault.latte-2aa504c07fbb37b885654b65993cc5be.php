@@ -1,17 +1,27 @@
-<?php //netteCache[01]000452a:2:{s:4:"time";s:21:"0.40297300 1384970533";s:9:"callbacks";a:2:{i:0;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:129:"C:\Program Files (x86)\EasyPHP-DevServer-13.1VC11\data\localweb\projects\IIS2\nette\sandbox\app\templates\Sestra\adddefault.latte";i:2;i:1384970513;}i:1;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:10:"checkConst";}i:1;s:25:"Nette\Framework::REVISION";i:2;s:30:"80a7e46 released on 2013-08-08";}}}?><?php
+<?php //netteCache[01]000452a:2:{s:4:"time";s:21:"0.94550300 1385043195";s:9:"callbacks";a:2:{i:0;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:129:"C:\Program Files (x86)\EasyPHP-DevServer-13.1VC11\data\localweb\projects\IIS2\nette\sandbox\app\templates\Sestra\adddefault.latte";i:2;i:1385043195;}i:1;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:10:"checkConst";}i:1;s:25:"Nette\Framework::REVISION";i:2;s:30:"80a7e46 released on 2013-08-08";}}}?><?php
 
 // source file: C:\Program Files (x86)\EasyPHP-DevServer-13.1VC11\data\localweb\projects\IIS2\nette\sandbox\app\templates\Sestra\adddefault.latte
 
 ?><?php
 // prolog Nette\Latte\Macros\CoreMacros
-list($_l, $_g) = Nette\Latte\Macros\CoreMacros::initRuntime($template, 'm56iakyvmq')
+list($_l, $_g) = Nette\Latte\Macros\CoreMacros::initRuntime($template, 'ff20id8ubw')
 ;
 // prolog Nette\Latte\Macros\UIMacros
 //
 // block content
 //
-if (!function_exists($_l->blocks['content'][] = '_lbbaf944993e_content')) { function _lbbaf944993e_content($_l, $_args) { extract($_args)
-?><h1>Zobrazenie objednávok a ich pridávanie nových</h1>
+if (!function_exists($_l->blocks['content'][] = '_lbacc961b996_content')) { function _lbacc961b996_content($_l, $_args) { extract($_args)
+?><div class="left">
+<a href="<?php echo htmlSpecialChars($_control->link("Sestra:pacient")) ?>">Zobrazenie pacientov</a>
+<a href="<?php echo htmlSpecialChars($_control->link("Sestra:deleteeditdefault")) ?>
+">Mazanie a Editovanie Objednávok</a>
+<a href="<?php echo htmlSpecialChars($_control->link("Sestra:default")) ?>">Zobrazenie objednávok</a>
+</div>
+
+<hr />
+<div class="center">
+
+<h1>Zobrazenie objednávok a ich pridávanie nových</h1>
 
 
 
@@ -50,11 +60,7 @@ if (!function_exists($_l->blocks['content'][] = '_lbbaf944993e_content')) { func
    
     </tbody>
 </table>
-
-<a href="<?php echo htmlSpecialChars($_control->link("Sestra:pacient")) ?>">Zobrazenie pacientov</a>
-<a href="<?php echo htmlSpecialChars($_control->link("Sestra:deleteeditdefault")) ?>
-">Mazanie a Editovanie Objednávok</a>
-<a href="<?php echo htmlSpecialChars($_control->link("Sestra:default")) ?>">Zobrazenie objednávok</a>
+</div>
 
 
 

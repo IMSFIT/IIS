@@ -5,42 +5,28 @@
         <meta name="description" content="">
         <meta name="robots" content="{$robots}" n:ifset="$robots">
 
-        <title>{block title|stripTags|strip}Úkolníček{/block}</title>
+        <title>{block title|stripTags|trim}{/block} | Úkolníček</title>
 
-        <link rel="stylesheet" href="{$basePath}/css/screen.css" type="text/css">
+        <link rel="stylesheet" href="{$basePath}/css/screenmartin.css">
         <link rel="shortcut icon" href="{$basePath}/favicon.ico">
         {block head}{/block}
 </head>
 
 <body>
 <div id="header">
-    <div id="header-inner">
-	{if $user->isLoggedIn()}
-        <div class="title"><a n:href="Homepage:">Úkolníček</a></div>
+        <div id="header-inner">
+                
 
-        
-        <div class="user">
-            <span class="icon user">{$user->getIdentity()->name}</span> |
-            <a n:href="User:password">Změna hesla</a> |
-            <a n:href="signOut!">Odhlásit se</a>
+                <div class="user" n:if="$user->isLoggedIn()">
+                        <span class="icon user">{$user->getIdentity()->name}</span> |
+                        <a n:href="User:password">Změna hesla</a> |
+                        <a n:href="Sign:out">Odhlásit se</a>
+                </div>
         </div>
-        {/if}
-    </div>
 </div>
 
 <div id="container">
-        <div id="sidebar">
-		{if $user->isLoggedIn()}
-                <h2><a n:href="Homepage:">Přehled</a></h2>
-
-                <div class="task-lists">
-                        <h2>Seznamy</h2>
-                        <ul>
-                               
-                        </ul>
-                </div>
-				{/if}
-        </div>
+        
 
         <div id="content">
                 <div n:foreach="$flashes as $flash" class="flash {$flash->type}">{$flash->message}</div>
@@ -48,9 +34,7 @@
                 {include #content}
         </div>
 
-        <div id="footer">
-               
-        </div>
+       
 </div>
 
         {block scripts}

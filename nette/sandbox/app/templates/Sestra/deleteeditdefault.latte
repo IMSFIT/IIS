@@ -1,6 +1,13 @@
 {block content}
+<div class="left">
+<a n:href="Sestra:pacient ">Zobrazenie pacientov</a>
+<a n:href="Sestra:deleteeditdefault">Mazanie a Editovanie Objednávok</a>
+<a n:href="Sestra:pacient">Pridanie objednávok</a>
 
 
+</div>
+<hr>
+<div class="center">
 <h1>Zobrazenie objednávok a ich mazanie a editácia</h1>
 
 
@@ -22,7 +29,7 @@
     {foreach $objednavkys as $objednavky}
                 <tr>
                         <td>{$objednavky->oddeleni}</td>
-                        
+                        <td>{$objednavky->jidlo->nazev_jidla}</td>
                         <td>{$objednavky->stav}</td>
 						 <td>{$objednavky->rc_pacienta}</td>
 
@@ -32,10 +39,7 @@
    
     </tbody>
 </table>
-
-<a n:href="Sestra:pacient ">Zobrazenie pacientov</a>
-<a n:href="Sestra:deleteeditdefault">Mazanie a Editovanie Objednávok</a>
-<a n:href="Sestra:pacient">Pridanie objednávok</a>
+</div>
 
 
 

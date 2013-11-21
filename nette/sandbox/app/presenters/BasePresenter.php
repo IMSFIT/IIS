@@ -19,9 +19,10 @@ abstract class BasePresenter extends Nette\Application\UI\Presenter
 		protected $surovinyRepository;
 		protected $userRepository;
 		protected $rolesRepository;
+		protected $stavRepository;
 		
 
- public function injectBase(Todo\Objednavka_Na_KuchynRepository $objednavkaRepository,Todo\PacientRepository $pacientRepository,Todo\JidloRepository $jidlaRepository,Todo\SurovinyRepository $surovinyRepository,Todo\UserRepository $userRepository,Todo\RolesRepository $rolesRepository)
+ public function injectBase(Todo\Objednavka_Na_KuchynRepository $objednavkaRepository,Todo\PacientRepository $pacientRepository,Todo\JidloRepository $jidlaRepository,Todo\SurovinyRepository $surovinyRepository,Todo\UserRepository $userRepository,Todo\RolesRepository $rolesRepository,Todo\StavRepository $stavRepository)
         {
                 $this->objednavkaRepository = $objednavkaRepository;
 				$this->pacientRepository = $pacientRepository;
@@ -29,6 +30,7 @@ abstract class BasePresenter extends Nette\Application\UI\Presenter
 				$this->surovinyRepository = $surovinyRepository;
 				$this->userRepository = $userRepository;
 				$this->rolesRepository = $rolesRepository;
+				$this->stavRepository = $stavRepository;
         }
 
 
@@ -43,29 +45,10 @@ abstract class BasePresenter extends Nette\Application\UI\Presenter
         /**s
          * @return Nette\Application\UI\Form
          */
-        protected function createComponentNewListForm()
-        {
-                if (!$this->getUser()->isLoggedIn()) {
-                        $this->redirect('Sign:in');
-                }
-
-                $form = new Form();
-                $form->addText('title', 'Název:', 15, 50)
-                        ->addRule(Form::FILLED, 'Musíte zadat název seznamu úkolů.');
-
-                $form->addSubmit('create', 'Vytvořit');
-                $form->onSuccess[] = $this->newListFormSubmitted;
-
-                return $form;
-        }
-
-
-
-        public function newListFormSubmitted(Form $form)
-        {
-                $list = $this->listRepository->createList($form->values->title);
-                $this->flashMessage('Seznam úkolů založen.', 'success');
-                $this->redirect('Task:default', $list->id);
-        }
+        		public function handleSignOut()
+{
+    $this->getUser()->logout();
+    $this->redirect('Sign:in');
+}
 
 }

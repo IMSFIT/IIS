@@ -1,0 +1,58 @@
+{block content}
+
+
+
+
+<div class="left">
+<a n:href="Administrator:objednavka ">Zobrazenie objednávok</a>
+<a n:href="Administrator:deleteeditdefault">Mazanie a Editovanie Objednávok</a>
+<a n:href="Administrator:adddefault">Pridanie objednávok</a>
+<a n:href="Administrator:user ">Zobrazenie uzivatelov</a>
+<a n:href="Administrator:useradd">Pridávanie užívateľov</a>
+
+<a n:href="Administrator:pacient">Zobrazenie pacientov</a>
+<a n:href="Administrator:deleteedituser">Mazanie a editovanie užívateľov</a>
+
+<a n:href="Administrator:suroviny">Zobrazenie surovín</a>
+<a n:href="Administrator:surovinyadd">Doplnenenie surovín do skladu</a>
+</div>
+<hr>
+<div class="center">
+<h1>Editácia objednávok</h1>
+<fieldset>
+    <legend>Editácia objednávok</legend>
+
+    {control taskForm6}
+</fieldset>
+
+<table>
+    <thead>
+    <tr>
+		 <th>ID objednávky</th>
+        <th>Oddelenie</th>
+        <th>Preferované jedlo</th>
+        <th>Stav objednávky</th>
+		<th>RC pacienta</th>
+        <th>Priezvisko pacienta</th>    
+    </tr>
+    </thead>
+    <tbody>
+    {foreach $objednavkys as $objednavky}
+                <tr>	
+						<td>{$objednavky->id_objednavky}</td>
+                        <td>{$objednavky->oddeleni}</td>
+                    <td>{$objednavky->jidlo->nazev_jidla}</td>
+                        <td>{$objednavky->stav}</td>
+						 <td>{$objednavky->rc_pacienta}</td>
+
+						
+				</tr>
+     {/foreach}
+   
+    </tbody>
+</table>
+
+</div>
+
+
+{/block}

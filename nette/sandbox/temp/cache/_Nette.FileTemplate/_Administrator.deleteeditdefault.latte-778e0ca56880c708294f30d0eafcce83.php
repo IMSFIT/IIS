@@ -1,47 +1,17 @@
-<?php //netteCache[01]000466a:2:{s:4:"time";s:21:"0.92788600 1384989727";s:9:"callbacks";a:2:{i:0;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:143:"C:\Program Files (x86)\EasyPHP-DevServer-13.1VC11\data\localweb\projects\IIS2\nette\sandbox\app\templates\Administrator\deleteeditdefault.latte";i:2;i:1384989687;}i:1;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:10:"checkConst";}i:1;s:25:"Nette\Framework::REVISION";i:2;s:30:"80a7e46 released on 2013-08-08";}}}?><?php
+<?php //netteCache[01]000466a:2:{s:4:"time";s:21:"0.30518600 1385045428";s:9:"callbacks";a:2:{i:0;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:143:"C:\Program Files (x86)\EasyPHP-DevServer-13.1VC11\data\localweb\projects\IIS2\nette\sandbox\app\templates\Administrator\deleteeditdefault.latte";i:2;i:1385045420;}i:1;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:10:"checkConst";}i:1;s:25:"Nette\Framework::REVISION";i:2;s:30:"80a7e46 released on 2013-08-08";}}}?><?php
 
 // source file: C:\Program Files (x86)\EasyPHP-DevServer-13.1VC11\data\localweb\projects\IIS2\nette\sandbox\app\templates\Administrator\deleteeditdefault.latte
 
 ?><?php
 // prolog Nette\Latte\Macros\CoreMacros
-list($_l, $_g) = Nette\Latte\Macros\CoreMacros::initRuntime($template, 'ns3vxmoxon')
+list($_l, $_g) = Nette\Latte\Macros\CoreMacros::initRuntime($template, 'zeqhyvipq9')
 ;
 // prolog Nette\Latte\Macros\UIMacros
 //
 // block content
 //
-if (!function_exists($_l->blocks['content'][] = '_lb95628b71c7_content')) { function _lb95628b71c7_content($_l, $_args) { extract($_args)
-?><h1>Zobrazenie objednávok a ich mazanie a editácia</h1>
-
-
-//tu príde editovatelná tabuľka
-
-
-<table>
-    <thead>
-    <tr>
-        <th>Oddelenie</th>
-        <th>Preferované jedlo</th>
-        <th>Stav objednávky</th>
-		<th>Meno pacienta</th>
-        <th>Priezvisko pacienta</th>    
-    </tr>
-    </thead>
-    <tbody>
-<?php $iterations = 0; foreach ($objednavkys as $objednavky): ?>
-                <tr>
-                        <td><?php echo Nette\Templating\Helpers::escapeHtml($objednavky->oddeleni, ENT_NOQUOTES) ?></td>
-                        
-                        <td><?php echo Nette\Templating\Helpers::escapeHtml($objednavky->stav, ENT_NOQUOTES) ?></td>
-						 <td><?php echo Nette\Templating\Helpers::escapeHtml($objednavky->rc_pacienta, ENT_NOQUOTES) ?></td>
-
-						
-				</tr>
-<?php $iterations++; endforeach ?>
-   
-    </tbody>
-</table>
-
+if (!function_exists($_l->blocks['content'][] = '_lb65655e3068_content')) { function _lb65655e3068_content($_l, $_args) { extract($_args)
+?><div class="left">
 <a href="<?php echo htmlSpecialChars($_control->link("Administrator:objednavka")) ?>
 ">Zobrazenie objednávok</a>
 <a href="<?php echo htmlSpecialChars($_control->link("Administrator:deleteeditdefault")) ?>
@@ -61,6 +31,46 @@ if (!function_exists($_l->blocks['content'][] = '_lb95628b71c7_content')) { func
 ">Zobrazenie surovín</a>
 <a href="<?php echo htmlSpecialChars($_control->link("Administrator:surovinyadd")) ?>
 ">Doplnenenie surovín do skladu</a>
+</div>
+<hr />
+<div class="center">
+<h1>Zobrazenie objednávok a ich mazanie a editácia</h1>
+<fieldset>
+    <legend>Zmazanie objednávky</legend>
+
+<?php $_ctrl = $_control->getComponent("taskForm5"); if ($_ctrl instanceof Nette\Application\UI\IRenderable) $_ctrl->validateControl(); $_ctrl->render() ?>
+</fieldset>
+
+
+
+<table>
+    <thead>
+    <tr>
+		 <th>ID objednávky</th>
+        <th>Oddelenie</th>
+        <th>Preferované jedlo</th>
+        <th>Stav objednávky</th>
+		<th>RC pacienta</th>
+        <th>Priezvisko pacienta</th>    
+    </tr>
+    </thead>
+    <tbody>
+<?php $iterations = 0; foreach ($objednavkys as $objednavky): ?>
+                <tr>	
+						<td><?php echo Nette\Templating\Helpers::escapeHtml($objednavky->id_objednavky, ENT_NOQUOTES) ?></td>
+                        <td><?php echo Nette\Templating\Helpers::escapeHtml($objednavky->oddeleni, ENT_NOQUOTES) ?></td>
+                    <td><?php echo Nette\Templating\Helpers::escapeHtml($objednavky->jidlo->nazev_jidla, ENT_NOQUOTES) ?></td>
+                        <td><?php echo Nette\Templating\Helpers::escapeHtml($objednavky->stav, ENT_NOQUOTES) ?></td>
+						 <td><?php echo Nette\Templating\Helpers::escapeHtml($objednavky->rc_pacienta, ENT_NOQUOTES) ?></td>
+
+						
+				</tr>
+<?php $iterations++; endforeach ?>
+   
+    </tbody>
+</table>
+
+</div>
 
 
 <?php
@@ -86,6 +96,8 @@ if ($_l->extends) {
 // main template
 //
 ?>
+
+
 
 
 <?php if ($_l->extends) { ob_end_clean(); return Nette\Latte\Macros\CoreMacros::includeTemplate($_l->extends, get_defined_vars(), $template)->render(); }

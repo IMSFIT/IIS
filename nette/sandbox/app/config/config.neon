@@ -20,7 +20,7 @@ common:
 			user: 'root'
 			password:
 		session:
-			expiration: 14 days
+			expiration: +20 days 
 
 
 	services:
@@ -38,6 +38,8 @@ common:
 		userRepository:	Todo\UserRepository
 		jidelnicekRepository: Todo\JidelnicekRepository
 		rolesRepository: Todo\RolesRepository
+		stavRepository: Todo\StavRepository
+		
 
 
 	

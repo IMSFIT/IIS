@@ -1,23 +1,40 @@
-<?php //netteCache[01]000453a:2:{s:4:"time";s:21:"0.62463300 1384990667";s:9:"callbacks";a:2:{i:0;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:130:"C:\Program Files (x86)\EasyPHP-DevServer-13.1VC11\data\localweb\projects\IIS2\nette\sandbox\app\templates\Administrator\user.latte";i:2;i:1384990654;}i:1;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:10:"checkConst";}i:1;s:25:"Nette\Framework::REVISION";i:2;s:30:"80a7e46 released on 2013-08-08";}}}?><?php
+<?php //netteCache[01]000453a:2:{s:4:"time";s:21:"0.32684100 1385036451";s:9:"callbacks";a:2:{i:0;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:130:"C:\Program Files (x86)\EasyPHP-DevServer-13.1VC11\data\localweb\projects\IIS2\nette\sandbox\app\templates\Administrator\user.latte";i:2;i:1385036450;}i:1;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:10:"checkConst";}i:1;s:25:"Nette\Framework::REVISION";i:2;s:30:"80a7e46 released on 2013-08-08";}}}?><?php
 
 // source file: C:\Program Files (x86)\EasyPHP-DevServer-13.1VC11\data\localweb\projects\IIS2\nette\sandbox\app\templates\Administrator\user.latte
 
 ?><?php
 // prolog Nette\Latte\Macros\CoreMacros
-list($_l, $_g) = Nette\Latte\Macros\CoreMacros::initRuntime($template, '7ejux1fcut')
+list($_l, $_g) = Nette\Latte\Macros\CoreMacros::initRuntime($template, '1cbm52ur4w')
 ;
 // prolog Nette\Latte\Macros\UIMacros
 //
 // block content
 //
-if (!function_exists($_l->blocks['content'][] = '_lb8b9bfb8072_content')) { function _lb8b9bfb8072_content($_l, $_args) { extract($_args)
-?><h1>Zobrazenie užívateľov</h1>
+if (!function_exists($_l->blocks['content'][] = '_lb6633e1aa63_content')) { function _lb6633e1aa63_content($_l, $_args) { extract($_args)
+?><div class="left">
+<a href="<?php echo htmlSpecialChars($_control->link("Administrator:objednavka")) ?>
+">Zobrazenie objednávok</a>
+<a href="<?php echo htmlSpecialChars($_control->link("Administrator:deleteeditdefault")) ?>
+">Mazanie a Editovanie Objednávok</a>
+<a href="<?php echo htmlSpecialChars($_control->link("Administrator:adddefault")) ?>
+">Pridanie objednávok</a>
+<a href="<?php echo htmlSpecialChars($_control->link("Administrator:user")) ?>">Zobrazenie uzivatelov</a>
+<a href="<?php echo htmlSpecialChars($_control->link("Administrator:useradd")) ?>
+">Pridávanie užívateľov</a>
 
+<a href="<?php echo htmlSpecialChars($_control->link("Administrator:pacient")) ?>
+">Zobrazenie pacientov</a>
+<a href="<?php echo htmlSpecialChars($_control->link("Administrator:deleteedituser")) ?>
+">Mazanie a editovanie užívateľov</a>
 
-
-
-
-
+<a href="<?php echo htmlSpecialChars($_control->link("Administrator:suroviny")) ?>
+">Zobrazenie surovín</a>
+<a href="<?php echo htmlSpecialChars($_control->link("Administrator:surovinyadd")) ?>
+">Doplnenenie surovín do skladu</a>
+<hr />
+</div>
+<div class="center">
+<h1>Zobrazenie užívateľov</h1>
 <table>
     <thead>
     <tr>
@@ -44,25 +61,7 @@ if (!function_exists($_l->blocks['content'][] = '_lb8b9bfb8072_content')) { func
     </tbody>
 </table>
 
-<a href="<?php echo htmlSpecialChars($_control->link("Administrator:objednavka")) ?>
-">Zobrazenie objednávok</a>
-<a href="<?php echo htmlSpecialChars($_control->link("Administrator:deleteeditdefault")) ?>
-">Mazanie a Editovanie Objednávok</a>
-<a href="<?php echo htmlSpecialChars($_control->link("Administrator:adddefault")) ?>
-">Pridanie objednávok</a>
-<a href="<?php echo htmlSpecialChars($_control->link("Administrator:user")) ?>">Zobrazenie uzivatelov</a>
-<a href="<?php echo htmlSpecialChars($_control->link("Administrator:useradd")) ?>
-">Pridávanie užívateľov</a>
-
-<a href="<?php echo htmlSpecialChars($_control->link("Administrator:pacient")) ?>
-">Zobrazenie pacientov</a>
-<a href="<?php echo htmlSpecialChars($_control->link("Administrator:deleteedituser")) ?>
-">Mazanie a editovanie užívateľov</a>
-
-<a href="<?php echo htmlSpecialChars($_control->link("Administrator:suroviny")) ?>
-">Zobrazenie surovín</a>
-<a href="<?php echo htmlSpecialChars($_control->link("Administrator:surovinyadd")) ?>
-">Doplnenenie surovín do skladu</a>
+</div>
 
 
 <?php
@@ -88,6 +87,7 @@ if ($_l->extends) {
 // main template
 //
 ?>
+
 
 
 <?php if ($_l->extends) { ob_end_clean(); return Nette\Latte\Macros\CoreMacros::includeTemplate($_l->extends, get_defined_vars(), $template)->render(); }

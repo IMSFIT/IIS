@@ -1,0 +1,60 @@
+@charset "utf-8";
+/* CSS Document */
+body {
+		background-color: #fff; 
+background-image: 
+linear-gradient(90deg, transparent 79px, #abced4 79px, #abced4 81px, transparent 81px),
+linear-gradient(#eee .1em, transparent .1em);
+background-size: 100% 1.2em;
+text-align:center;
+}
+
+h1 {
+ color:#6CF;	
+	
+	
+}
+
+.left {
+background: #36c;
+background: 
+linear-gradient(115deg, transparent 75%, rgba(255,255,255,.8) 75%) 0 0,
+linear-gradient(245deg, transparent 75%, rgba(255,255,255,.8) 75%) 0 0,
+linear-gradient(115deg, transparent 75%, rgba(255,255,255,.8) 75%) 7px -15px,
+linear-gradient(245deg, transparent 75%, rgba(255,255,255,.8) 75%) 7px -15px,
+#36c;
+background-size: 15px 70px	
+heighth:100px;
+
+}
+
+
+
+.left a{
+	
+	text-decoration:none;
+	color:#6C9;
+	font-size:18px;
+	
+}
+
+.center {
+width:1024px;
+margin:    0px auto;
+	
+	
+	
+}
+
+
+hr {
+     color: #f00;
+     background: #f00; 
+     width: 100%; 
+     height: 5px;
+}
+
+td {
+text-align:center;	
+	
+}

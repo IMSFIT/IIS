@@ -1,5 +1,11 @@
 {block content}
-
+<div class="left">
+<a n:href="Sestra:default ">Zobrazenie objednávok</a>
+<a n:href="Sestra:deleteeditdefault">Mazanie a Editovanie Objednávok</a>
+<a n:href="Sestra:adddefault">Pridanie objednávok</a>
+</div>
+<hr>
+<div class="center">
 <h1>Zobrazenie pacientov</h1>
 
 <table>
@@ -26,19 +32,20 @@
                         <td>{$pacient->prijmeni}</td>
 						<td>{$pacient->jmeno_osetrujiciho_lekare}</td>
                 	    <td>{$pacient->datum_prijeti}</td>
-						   
-						<td>{$pacient->zmena_diety}</td>
+						
+						<td>{$pacient->diety->nazev_diety}</td>
+						   <td>{$pacient->zmena_diety}</td>
 						<td>{$pacient->cislo_pokoje}</td>
+						<td>{$pacient->jidelnicku->datum_vystaveni}</td>
+						<td>{$pacient->jidelnicku->platnost}</td>
 						
 				</tr>
      {/foreach}
    
     </tbody>
 </table>
+</div>
 
-<a n:href="Sestra:default ">Zobrazenie objednávok</a>
-<a n:href="Sestra:deleteeditdefault">Mazanie a Editovanie Objednávok</a>
-<a n:href="Sestra:adddefault">Pridanie objednávok</a>
 
 
 {/block}
