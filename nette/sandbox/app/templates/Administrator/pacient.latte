@@ -1,0 +1,51 @@
+{block content}
+
+<h1>Zobrazenie pacientov</h1>
+
+<table>
+    <thead>
+    <tr>
+        <th>rodné číslo</th>
+        <th>Jméno</th>
+        <th>Priezvisko</th>
+		<th>Meno ošetrujúceho lekára</th>
+		<th>Dátum prijatia</th>
+		
+		<th>Názov diety</th>
+		<th>Zmena diety</th>
+		<th>Číslo izby</th>
+		<th>Dátum vystavenia jedálnička</th>
+		<th>Dátum platnosti jedálnička</th>
+    </tr>
+    </thead>
+    <tbody>
+    {foreach $pacients as $pacient}
+                <tr>
+                        <td>{$pacient->rodne_cislo}</td>
+                        <td>{$pacient->jmeno}</td>
+                        <td>{$pacient->prijmeni}</td>
+						<td>{$pacient->jmeno_osetrujiciho_lekare}</td>
+                	    <td>{$pacient->datum_prijeti}</td>
+						   
+						<td>{$pacient->zmena_diety}</td>
+						<td>{$pacient->cislo_pokoje}</td>
+						
+				</tr>
+     {/foreach}
+   
+    </tbody>
+</table>
+
+<a n:href="Administrator:objednavka ">Zobrazenie objednávok</a>
+<a n:href="Administrator:deleteeditdefault">Mazanie a Editovanie Objednávok</a>
+<a n:href="Administrator:adddefault">Pridanie objednávok</a>
+<a n:href="Administrator:user ">Zobrazenie uzivatelov</a>
+<a n:href="Administrator:useradd">Pridávanie užívateľov</a>
+
+<a n:href="Administrator:pacient">Zobrazenie pacientov</a>
+<a n:href="Administrator:deleteedituser">Mazanie a editovanie užívateľov</a>
+
+<a n:href="Administrator:suroviny">Zobrazenie surovín</a>
+<a n:href="Administrator:surovinyadd">Doplnenenie surovín do skladu</a>
+
+{/block}

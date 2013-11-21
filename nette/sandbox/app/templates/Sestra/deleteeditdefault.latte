@@ -1,0 +1,42 @@
+{block content}
+
+
+<h1>Zobrazenie objednávok a ich mazanie a editácia</h1>
+
+
+//tu príde editovatelná tabuľka
+
+
+
+<table>
+    <thead>
+    <tr>
+        <th>Oddelenie</th>
+        <th>Preferované jedlo</th>
+        <th>Stav objednávky</th>
+		<th>Meno pacienta</th>
+        <th>Priezvisko pacienta</th>    
+    </tr>
+    </thead>
+    <tbody>
+    {foreach $objednavkys as $objednavky}
+                <tr>
+                        <td>{$objednavky->oddeleni}</td>
+                        
+                        <td>{$objednavky->stav}</td>
+						 <td>{$objednavky->rc_pacienta}</td>
+
+						
+				</tr>
+     {/foreach}
+   
+    </tbody>
+</table>
+
+<a n:href="Sestra:pacient ">Zobrazenie pacientov</a>
+<a n:href="Sestra:deleteeditdefault">Mazanie a Editovanie Objednávok</a>
+<a n:href="Sestra:pacient">Pridanie objednávok</a>
+
+
+
+{/block}

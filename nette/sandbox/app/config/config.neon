@@ -24,7 +24,7 @@ common:
 
 
 	services:
-		authenticator: Authenticator
+		authenticator: Todo\Authenticator
 		routerFactory: RouterFactory
 		router: @routerFactory::createRouter
 		
@@ -37,6 +37,7 @@ common:
 		surovinyRepository: Todo\SurovinyRepository
 		userRepository:	Todo\UserRepository
 		jidelnicekRepository: Todo\JidelnicekRepository
+		rolesRepository: Todo\RolesRepository
 
 
 	

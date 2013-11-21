@@ -1,0 +1,50 @@
+{block content}
+
+
+<h1>Zobrazenie objednávok a ich mazanie a editácia</h1>
+
+
+//tu príde editovatelná tabuľka
+
+
+
+<table>
+    <thead>
+    <tr>
+        <th>Prihlasovacie meno</th>
+        <th>Heslo</th>
+        <th>Skutočné meno</th>
+		  <th>Rola</th>
+		
+    </tr>
+    </thead>
+    <tbody>
+    {foreach $users as $user}
+                <tr>
+                        <td>{$user->username}</td>
+                        
+                        <td>{$user->password}</td>
+						 <td>{$user->name}</td>
+						 <td>{$user->id_role}</td>
+
+						
+				</tr>
+     {/foreach}
+   
+    </tbody>
+</table>
+
+<a n:href="Administrator:objednavka ">Zobrazenie objednávok</a>
+<a n:href="Administrator:deleteeditdefault">Mazanie a Editovanie Objednávok</a>
+<a n:href="Administrator:adddefault">Pridanie objednávok</a>
+<a n:href="Administrator:user ">Zobrazenie uzivatelov</a>
+<a n:href="Administrator:useradd">Pridávanie užívateľov</a>
+
+<a n:href="Administrator:pacient">Zobrazenie pacientov</a>
+<a n:href="Administrator:deleteedituser">Mazanie a editovanie užívateľov</a>
+
+<a n:href="Administrator:suroviny">Zobrazenie surovín</a>
+<a n:href="Administrator:surovinyadd">Doplnenenie surovín do skladu</a>
+
+
+{/block}

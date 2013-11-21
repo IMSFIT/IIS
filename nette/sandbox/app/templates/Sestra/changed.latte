@@ -1,0 +1,42 @@
+{block content}
+
+<h1>Zobrazenie objednávok zmenených</h1>
+
+<table>
+    <thead>
+    <tr>
+        <th>Oddelenie</th>
+      
+        <th>Stav objednávky</th>
+		<th>Nazov jidla</th>
+        <th>Rodné číslo</th>    
+    </tr>
+    </thead>
+    <tbody>
+    {foreach $objednavkys as $objednavky}
+                <tr>
+                        <td>{$objednavky->oddeleni}</td>
+                     
+                        <td>{$objednavky->stav}</td>
+                         <td>{$objednavky->jidlo->nazev_jidla}</td>
+                         <td>{$objednavky->rc_pacienta}</td>
+                       
+						
+
+						
+				</tr>
+     {/foreach}
+   
+    </tbody>
+</table>
+
+<a n:href="Sestra:pacient ">Zobrazenie pacientov</a>
+<a n:href="Sestra:deleteeditdefault">Mazanie a Editovanie Objednávok</a>
+<a n:href="Sestra:adddefault">Pridanie objednávok</a>
+<a n:href="Sestra:accepted">Zobrazenie prijatých objednávok</a>
+<a n:href="Sestra:confirmed">Zobrazenie potvredných objednávok</a>
+<a n:href="Sestra:changed">Zobrazenie zmenených objednávok</a>
+
+
+
+{/block}

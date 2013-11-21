@@ -7,9 +7,9 @@ use Nette;
  */
 class PacientRepository extends Repository
 {
-	/*public function findIncomplete()
-{
-    return $this->findBy(array('done' => false))->order('created ASC');
-}*/
+	public function tasksOf(Nette\Database\Table\ActiveRow $list)
+	{
+    return $list->related('rodne_cislo')->order('created');
+	}
 }
 

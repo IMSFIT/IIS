@@ -6,21 +6,29 @@
 class HomepagePresenter extends BasePresenter
 {
 
-        /** @var Todo\Objednabka */
-        private $objednavka;
+        /** @var Todo\TaskRepository */
+       protected $objednavkaRepository;
 
 
 
-        public function inject(Todo\Objednavka_Na_KuchynRepository $objednavka)
+        public function inject(Todo\Objednavka_Na_KuchynRepository $objednavkaRepository)
         {
-                $this->objednavka = $objednavka;
+                $this->objednavkaRepository = $objednavkaRepository;
         }
 
 
 
-        public function renderDefault()
+        protected function startup()
         {
-                $this->template->tasks = $this->objednavka->findIncomplete();
+                parent::startup();
+
+                if (!$this->getUser()->isLoggedIn()) {
+                        $this->redirect('Sign:in');
+                }
         }
+
+
+
+
 
 }
