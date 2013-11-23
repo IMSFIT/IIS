@@ -41,6 +41,8 @@ common:
 		jidelnicekRepository: Todo\JidelnicekRepository
 		rolesRepository: Todo\RolesRepository
 		stavRepository: Todo\StavRepository
+		aktivitaRepository: Todo\AktivitaRepository
+		
 		
 
 

@@ -35,15 +35,15 @@ class Authenticator extends Nette\Object implements Security\IAuthenticator
 
 			    if (!$row) 
 				{
-        				throw new   Nette\Security\AuthenticationException("User '$username' not found.", self::IDENTITY_NOT_FOUND);
+        				throw new   Nette\Security\AuthenticationException("Užívateľ '$username' sa nenašiel.", self::IDENTITY_NOT_FOUND);
     			}
 
    				 if ($row->password !== self::calculateHash($password, $row->password)) {
-        			throw new   Nette\Security\AuthenticationException("Invalid password.", self::INVALID_CREDENTIAL);
+        			throw new   Nette\Security\AuthenticationException("Neplatné heslo.", self::INVALID_CREDENTIAL);
    			 }
-				dump($row);
+				
     			unset($row->password);
-    				return new    Nette\Security\Identity($row->id, NULL, $row->toArray());
+    				return new    Nette\Security\Identity($row->id, $row->role->nazov, $row->toArray());
         }
 
 

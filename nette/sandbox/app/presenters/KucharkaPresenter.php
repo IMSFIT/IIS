@@ -21,9 +21,9 @@ class KucharkaPresenter extends BasePresenter
 	protected function startup()
 	{
     	parent::startup();
-		/*if (!$this->getUser()->isLoggedIn()) {
+			if (!$this->getUser()->isLoggedIn()) {
         $this->redirect('Sign:in');
-    }*/
+    }
     	$this->objednavkaRepository = $this->context->objednavkaRepository;
 		$this->pacientRepository = $this->context->pacientRepository;
 		$this->jidlaRepository = $this->context->jidlaRepository;

@@ -1,38 +1,51 @@
-<?php //netteCache[01]000454a:2:{s:4:"time";s:21:"0.59951900 1385049175";s:9:"callbacks";a:2:{i:0;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:131:"C:\Program Files (x86)\EasyPHP-DevServer-13.1VC11\data\localweb\projects\IIS2\nette\sandbox\app\templates\Kucharka\objednavka.latte";i:2;i:1385046435;}i:1;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:10:"checkConst";}i:1;s:25:"Nette\Framework::REVISION";i:2;s:30:"80a7e46 released on 2013-08-08";}}}?><?php
+<?php //netteCache[01]000454a:2:{s:4:"time";s:21:"0.57035800 1385218679";s:9:"callbacks";a:2:{i:0;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:131:"C:\Program Files (x86)\EasyPHP-DevServer-13.1VC11\data\localweb\projects\IIS2\nette\sandbox\app\templates\Kucharka\objednavka.latte";i:2;i:1385218613;}i:1;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:10:"checkConst";}i:1;s:25:"Nette\Framework::REVISION";i:2;s:30:"80a7e46 released on 2013-08-08";}}}?><?php
 
 // source file: C:\Program Files (x86)\EasyPHP-DevServer-13.1VC11\data\localweb\projects\IIS2\nette\sandbox\app\templates\Kucharka\objednavka.latte
 
 ?><?php
 // prolog Nette\Latte\Macros\CoreMacros
-list($_l, $_g) = Nette\Latte\Macros\CoreMacros::initRuntime($template, '0cq7csywr2')
+list($_l, $_g) = Nette\Latte\Macros\CoreMacros::initRuntime($template, 'bte8pndn5c')
 ;
 // prolog Nette\Latte\Macros\UIMacros
 //
 // block content
 //
-if (!function_exists($_l->blocks['content'][] = '_lb18e9b1eb9d_content')) { function _lb18e9b1eb9d_content($_l, $_args) { extract($_args)
-?><div class="left">
+if (!function_exists($_l->blocks['content'][] = '_lb7878942f0a_content')) { function _lb7878942f0a_content($_l, $_args) { extract($_args)
+?><div class="menu">
+<ul>
+<li><a href="<?php echo htmlSpecialChars($_control->link("Kucharka:objednavka")) ?>
+">Zobrazenie všetkých objednávok</a></li>
+<div class="menu2">
+<ul>
 
-<a href="<?php echo htmlSpecialChars($_control->link("Kucharka:objednavka")) ?>">Zobrazenie objednávok</a>
-<a href="<?php echo htmlSpecialChars($_control->link("Kucharka:deleteeditdefault")) ?>
-">Mazanie a Editovanie Objednávok</a>
+<li><a href="<?php echo htmlSpecialChars($_control->link("Kucharka:confirmchange")) ?>
+">Potvrdenie/zmena objednávok</a></li>
 
-<a href="<?php echo htmlSpecialChars($_control->link("Kucharka:confirmchange")) ?>
-">Mazanie a Editovanie Objednávok</a>
+</ul>
+</div>
+<li><a href="<?php echo htmlSpecialChars($_control->link("Kucharka:suroviny")) ?>
+">Zobrazenie surovín</a></li>
+<div class="menu2">
+
+<ul>
+<li><a href="<?php echo htmlSpecialChars($_control->link("Kucharka:surovinyadd")) ?>
+">Doplnenenie surovín do skladu</a></li>
 
 
-
-
-<a href="<?php echo htmlSpecialChars($_control->link("Kucharka:suroviny")) ?>">Zobrazenie surovín</a>
-<a href="<?php echo htmlSpecialChars($_control->link("Kucharka:surovinyadd")) ?>
-">Doplnenenie surovín do skladu</a>
-
-
+</ul>
 
 </div>
 
-<hr />
-<div class="center">
+
+
+
+
+
+
+
+</ul>
+</div>
+<div class="center3">
 <h1>Zobrazenie objednávok</h1>
 
 

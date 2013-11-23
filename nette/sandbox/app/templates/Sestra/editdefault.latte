@@ -1,4 +1,9 @@
 {block content}
+
+
+
+
+
 <div class="menu">
 <ul>
 <li><a n:href="Sestra:default ">Zobrazenie všetkých objednávok</a></li>
@@ -26,40 +31,34 @@
 
 </ul>
 </div>
+
 <div class="center2">
-
-<h1>Zobrazenie objednávok a ich pridávanie nových</h1>
-
-
-
+<h1>Editácia objednávok</h1>
 <fieldset>
-    <legend>Pridať objednávku</legend>
+    <legend>Editácia objednávok</legend>
 
-    {control taskForm}
+    {control taskForm6}
 </fieldset>
-
-
 
 <table>
     <thead>
     <tr>
+		 <th>ID objednávky</th>
         <th>Oddelenie</th>
-      
+        <th>Preferované jedlo</th>
         <th>Stav objednávky</th>
-		<th>Nazov jidla</th>
-        <th>Rodné číslo</th>    
+		<th>RC pacienta</th>
+        <th>Priezvisko pacienta</th>    
     </tr>
     </thead>
     <tbody>
     {foreach $objednavkys as $objednavky}
-                <tr>
+                <tr>	
+						<td>{$objednavky->id_objednavky}</td>
                         <td>{$objednavky->oddeleni}</td>
-                     
+                    <td>{$objednavky->jidlo->nazev_jidla}</td>
                         <td>{$objednavky->stav}</td>
-                         <td>{$objednavky->jidlo->nazev_jidla}</td>
-                         <td>{$objednavky->rc_pacienta}</td>
-                       
-						
+						 <td>{$objednavky->rc_pacienta}</td>
 
 						
 				</tr>
@@ -67,8 +66,8 @@
    
     </tbody>
 </table>
-</div>
 
+</div>
 
 
 {/block}

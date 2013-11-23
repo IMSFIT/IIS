@@ -1,16 +1,16 @@
-<?php //netteCache[01]000459a:2:{s:4:"time";s:21:"0.82639300 1385220655";s:9:"callbacks";a:2:{i:0;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:136:"C:\Program Files (x86)\EasyPHP-DevServer-13.1VC11\data\localweb\projects\IIS2\nette\sandbox\app\templates\Administrator\objednavka.latte";i:2;i:1385220586;}i:1;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:10:"checkConst";}i:1;s:25:"Nette\Framework::REVISION";i:2;s:30:"80a7e46 released on 2013-08-08";}}}?><?php
+<?php //netteCache[01]000462a:2:{s:4:"time";s:21:"0.59900900 1385220666";s:9:"callbacks";a:2:{i:0;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:139:"C:\Program Files (x86)\EasyPHP-DevServer-13.1VC11\data\localweb\projects\IIS2\nette\sandbox\app\templates\Administrator\confirmchange.latte";i:2;i:1385220615;}i:1;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:10:"checkConst";}i:1;s:25:"Nette\Framework::REVISION";i:2;s:30:"80a7e46 released on 2013-08-08";}}}?><?php
 
-// source file: C:\Program Files (x86)\EasyPHP-DevServer-13.1VC11\data\localweb\projects\IIS2\nette\sandbox\app\templates\Administrator\objednavka.latte
+// source file: C:\Program Files (x86)\EasyPHP-DevServer-13.1VC11\data\localweb\projects\IIS2\nette\sandbox\app\templates\Administrator\confirmchange.latte
 
 ?><?php
 // prolog Nette\Latte\Macros\CoreMacros
-list($_l, $_g) = Nette\Latte\Macros\CoreMacros::initRuntime($template, 'vj2frearbg')
+list($_l, $_g) = Nette\Latte\Macros\CoreMacros::initRuntime($template, 'ymlaesb3pg')
 ;
 // prolog Nette\Latte\Macros\UIMacros
 //
 // block content
 //
-if (!function_exists($_l->blocks['content'][] = '_lb8c9a904221_content')) { function _lb8c9a904221_content($_l, $_args) { extract($_args)
+if (!function_exists($_l->blocks['content'][] = '_lb06cb18f317_content')) { function _lb06cb18f317_content($_l, $_args) { extract($_args)
 ?><div class="menu">
 <ul>
 <li><a href="<?php echo htmlSpecialChars($_control->link("Administrator:objednavka")) ?>
@@ -71,9 +71,13 @@ if (!function_exists($_l->blocks['content'][] = '_lb8c9a904221_content')) { func
 
 </ul>
 </div>
-
 <div class="center">
-<h1>Zobrazenie objednávok</h1>
+<h1>Zobrazenie objednávok a ich potvrdenie alebo zmena</h1>
+<fieldset>
+    <legend>Potvrdenie alebo zmena objednávky</legend>
+
+<?php $_ctrl = $_control->getComponent("taskForm44"); if ($_ctrl instanceof Nette\Application\UI\IRenderable) $_ctrl->validateControl(); $_ctrl->render() ?>
+</fieldset>
 
 
 
@@ -83,23 +87,23 @@ if (!function_exists($_l->blocks['content'][] = '_lb8c9a904221_content')) { func
 <table>
     <thead>
     <tr>
+	<th>ID objednávky</th>
         <th>Oddelenie</th>
         <th>Preferované jedlo</th>
         <th>Stav objednávky</th>
-		<th>Meno pacienta</th>
+		<th>RC pacienta</th>
         <th>Priezvisko pacienta</th>    
     </tr>
     </thead>
     <tbody>
 <?php $iterations = 0; foreach ($objednavkys as $objednavky): ?>
                 <tr>
+						 <td><?php echo Nette\Templating\Helpers::escapeHtml($objednavky->id_objednavky, ENT_NOQUOTES) ?></td>
                         <td><?php echo Nette\Templating\Helpers::escapeHtml($objednavky->oddeleni, ENT_NOQUOTES) ?></td>
-                            <td><?php echo Nette\Templating\Helpers::escapeHtml($objednavky->jidlo->nazev_jidla, ENT_NOQUOTES) ?></td>
+                        <td><?php echo Nette\Templating\Helpers::escapeHtml($objednavky->jidlo->nazev_jidla, ENT_NOQUOTES) ?></td>
                         <td><?php echo Nette\Templating\Helpers::escapeHtml($objednavky->stav, ENT_NOQUOTES) ?></td>
 						 <td><?php echo Nette\Templating\Helpers::escapeHtml($objednavky->rc_pacienta, ENT_NOQUOTES) ?></td>
-
-						  
-
+						
 						
 				</tr>
 <?php $iterations++; endforeach ?>
@@ -107,7 +111,40 @@ if (!function_exists($_l->blocks['content'][] = '_lb8c9a904221_content')) { func
     </tbody>
 </table>
 
+
+
+<table>
+    <thead>
+    <tr>
+	<th>Názov suroviny</th>
+        <th>Množstvo suroviny</th>
+        <th>Dátum objednania</th>
+        <th>Množstvo objednané suroviny</th>
+ 
+    </tr>
+    </thead>
+    <tbody>
+<?php $iterations = 0; foreach ($surovinys as $suroviny): ?>
+                <tr>
+						 <td><?php echo Nette\Templating\Helpers::escapeHtml($suroviny->nazev_suroviny, ENT_NOQUOTES) ?></td>
+                        <td><?php echo Nette\Templating\Helpers::escapeHtml($suroviny->mnozstvi_surovin, ENT_NOQUOTES) ?></td>
+                        <td><?php echo Nette\Templating\Helpers::escapeHtml($suroviny->datum_objednavky, ENT_NOQUOTES) ?></td>
+                        <td><?php echo Nette\Templating\Helpers::escapeHtml($suroviny->mnozstvi_objednane_suroviny, ENT_NOQUOTES) ?></td>
+
+						
+						
+				</tr>
+<?php $iterations++; endforeach ?>
+   
+    </tbody>
+</table>
+
+
+
 </div>
+
+
+
 
 
 

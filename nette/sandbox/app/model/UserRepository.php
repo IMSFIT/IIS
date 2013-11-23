@@ -18,7 +18,7 @@ class UserRepository extends Repository
 	public function setPassword($id, $password)
 {
     $this->getTable()->where(array('id' => $id))->update(array(
-        'password' => Authenticator::calculateHash($password)
+        'password' => ($password)
     ));
 }
 	
@@ -34,10 +34,11 @@ class UserRepository extends Repository
                         'name' => $user,
 						'password' => ($password),
                         'id_role' => $role,
+						'aktivita_uctu' => 2,
                 ));
         }	
 		
-	public function editUser($id, $id_role, $meno,$password)
+	public function editUser($id, $id_role, $meno,$password,$aktivita)
       {
                 return $this->findBy(array('id' => $id ))->update(array(
                         
@@ -45,6 +46,7 @@ class UserRepository extends Repository
                         'name' => $meno,
 						'password' => ($password),
                         'id_role' => $id_role,
+						'aktivita_uctu' => $aktivita,
                 ));
         }			
 		

@@ -1,17 +1,17 @@
 create table jidelnicek(
-						id_jidelnicku decimal(7,0) NOT NULL,
+						id_jidelnicku decimal(7,0) NOT NULL AUTO_INCREMENT,
 						primary key(id_jidelnicku),
 						datum_vystaveni varchar(20) NOT NULL,
 						platnost varchar(20) NOT NULL
 					);
 
 					create table jidlo_jidelnicku(
-						id_jidelnicku decimal(7,0) NOT NULL,
+						id_jidelnicku decimal(7,0) NOT NULL AUTO_INCREMENT,
 						id_jidla decimal(7,0) NOT NULL
 					);
 
 					create table jidlo(
-						id_jidla decimal(7,0) NOT NULL,
+						id_jidla decimal(7,0) NOT NULL AUTO_INCREMENT,
 						primary key(id_jidla),
 						nazev_jidla varchar(20) NOT NULL
 					);
@@ -19,19 +19,19 @@ create table jidelnicek(
 
 
 					create table typ_diety(
-						id_diety decimal(7,0) NOT NULL,
+						id_diety decimal(7,0) NOT NULL AUTO_INCREMENT,
 						primary key (id_diety),
 						nazev_diety varchar(20) NOT NULL
 					);
 
 					create table diety_jidel(
-						id_jidla decimal(7,0) NOT NULL,
+						id_jidla decimal(7,0) NOT NULL AUTO_INCREMENT,
 						id_diety decimal(7,0) NOT NULL,
-						foreign key (id_diety) references  typ_deity(id_diety)
+						foreign key (id_diety) references  typ_diety(id_diety)
 					);
 
 					create table pacient(
-						rodne_cislo decimal(12,0) NOT NULL,
+						rodne_cislo decimal(12,0) NOT NULL AUTO_INCREMENT,
 						primary key (rodne_cislo),
 						jmeno varchar(20) NOT NULL,
 						prijmeni varchar(20) NOT NULL,
@@ -41,11 +41,11 @@ create table jidelnicek(
 						zmena_diety varchar(20) NOT NULL,
 						cislo_pokoje int(11) NOT NULL,
 						jidelnicek decimal(7,0) NOT NULL,
-						foreign key (druh_diety) references  typ_deity(id_diety)
+						foreign key (druh_diety) references  typ_diety(id_diety)
 					);
 
 					create table objednavka_na_kuchyn(
-						id_objednavky decimal(7,0) NOT NULL,
+						id_objednavky decimal(7,0) NOT NULL AUTO_INCREMENT,
 						primary key (id_objednavky),
 						oddeleni varchar(30) NOT NULL,
 						preferovane_jidlo decimal(7,0) NOT NULL,
@@ -54,19 +54,19 @@ create table jidelnicek(
 					);
 
 					create table pokoj(
-						cislo_pokoje int(11) NOT NULL,
+						cislo_pokoje int(11) NOT NULL AUTO_INCREMENT,
 						primary key (cislo_pokoje),
 						patro int NOT NULL,
 						pavilon varchar(20)
 					);
 
 					create table jidla_a_suroviny(
-						id_jidla decimal(7,0) NOT NULL,
+						id_jidla decimal(7,0) NOT NULL AUTO_INCREMENT,
 						id_surovin decimal(7,0) NOT NULL
 					);
 
 					create table suroviny(
-						id_suroviny decimal(7,0) NOT NULL,
+						id_suroviny decimal(7,0) NOT NULL AUTO_INCREMENT,
 						primary key (id_suroviny),
 						nazev_suroviny varchar(20) NOT NULL,
 						mnozstvi_surovin int NOT NULL,
@@ -85,6 +85,35 @@ CREATE TABLE `user` (
   UNIQUE KEY `username` (`username`)
 );
 
+
+
+CREATE TABLE  `roles` (
+  
+`id_role` int(10) NOT NULL AUTO_INCREMENT,
+  
+`nazov` varchar(20) NOT NULL,
+  
+PRIMARY KEY (`id_role`)
+
+);
+
+
+
+CREATE TABLE  `aktivita` (
+  
+`id_aktivita` int(10) NOT NULL AUTO_INCREMENT,
+ 
+ `nazov` varchar(20) ,
+
+  PRIMARY KEY (`id_aktivita`)
+
+);
+
+
+
+
+					ALTER TABLE user ADD FOREIGN KEY ( id_role ) REFERENCES roles( id_role );
+					alter table user add foreign key (id_aktivita) references aktivita(id_aktivita);
 					alter table jidlo_jidelnicku add foreign key (id_jidelnicku) references jidelnicek(id_jidelnicku);
 
 					alter table jidlo_jidelnicku add foreign key (id_jidla) references jidlo(id_jidla);

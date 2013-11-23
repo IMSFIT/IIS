@@ -1,45 +1,77 @@
-<?php //netteCache[01]000458a:2:{s:4:"time";s:21:"0.66036100 1385041934";s:9:"callbacks";a:2:{i:0;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:135:"C:\Program Files (x86)\EasyPHP-DevServer-13.1VC11\data\localweb\projects\IIS2\nette\sandbox\app\templates\Administrator\confirmed.latte";i:2;i:1385041933;}i:1;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:10:"checkConst";}i:1;s:25:"Nette\Framework::REVISION";i:2;s:30:"80a7e46 released on 2013-08-08";}}}?><?php
+<?php //netteCache[01]000458a:2:{s:4:"time";s:21:"0.85079500 1385220662";s:9:"callbacks";a:2:{i:0;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:135:"C:\Program Files (x86)\EasyPHP-DevServer-13.1VC11\data\localweb\projects\IIS2\nette\sandbox\app\templates\Administrator\confirmed.latte";i:2;i:1385220620;}i:1;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:10:"checkConst";}i:1;s:25:"Nette\Framework::REVISION";i:2;s:30:"80a7e46 released on 2013-08-08";}}}?><?php
 
 // source file: C:\Program Files (x86)\EasyPHP-DevServer-13.1VC11\data\localweb\projects\IIS2\nette\sandbox\app\templates\Administrator\confirmed.latte
 
 ?><?php
 // prolog Nette\Latte\Macros\CoreMacros
-list($_l, $_g) = Nette\Latte\Macros\CoreMacros::initRuntime($template, 'tctxojtyas')
+list($_l, $_g) = Nette\Latte\Macros\CoreMacros::initRuntime($template, '13v1dd0al6')
 ;
 // prolog Nette\Latte\Macros\UIMacros
 //
 // block content
 //
-if (!function_exists($_l->blocks['content'][] = '_lbae1251c2de_content')) { function _lbae1251c2de_content($_l, $_args) { extract($_args)
-?><div class="left">
-<a href="<?php echo htmlSpecialChars($_control->link("Administrator:objednavka")) ?>
-">Zobrazenie objednávok</a>
-<a href="<?php echo htmlSpecialChars($_control->link("Administrator:accepted")) ?>
-">Zobrazenie prijatých objednávok</a>
-<a href="<?php echo htmlSpecialChars($_control->link("Administrator:changed")) ?>
-">Zobrazenie zmenených</a>
-<a href="<?php echo htmlSpecialChars($_control->link("Administrator:deleteeditdefault")) ?>
-">Mazanie a Editovanie Objednávok</a>
-<a href="<?php echo htmlSpecialChars($_control->link("Administrator:adddefault")) ?>
-">Pridanie objednávok</a>
-<a href="<?php echo htmlSpecialChars($_control->link("Administrator:user")) ?>">Zobrazenie uzivatelov</a>
-<a href="<?php echo htmlSpecialChars($_control->link("Administrator:useradd")) ?>
-">Pridávanie užívateľov</a>
-
-<a href="<?php echo htmlSpecialChars($_control->link("Administrator:pacient")) ?>
-">Zobrazenie pacientov</a>
-<a href="<?php echo htmlSpecialChars($_control->link("Administrator:deleteedituser")) ?>
-">Mazanie a editovanie užívateľov</a>
-
-<a href="<?php echo htmlSpecialChars($_control->link("Administrator:suroviny")) ?>
-">Zobrazenie surovín</a>
-<a href="<?php echo htmlSpecialChars($_control->link("Administrator:surovinyadd")) ?>
-">Doplnenenie surovín do skladu</a>
-
-
+if (!function_exists($_l->blocks['content'][] = '_lb58f0d0fdc9_content')) { function _lb58f0d0fdc9_content($_l, $_args) { extract($_args)
+?><div class="menu">
+<ul>
+<li><a href="<?php echo htmlSpecialChars($_control->link("Administrator:objednavka")) ?>
+">Zobrazenie všetkých objednávok</a></li>
+<div class="menu2">
+<ul>
+<li><a href="<?php echo htmlSpecialChars($_control->link("Administrator:deleteeditdefault")) ?>
+">Mazanie Objednávok</a></li>
+<li><a href="<?php echo htmlSpecialChars($_control->link("Administrator:adddefault")) ?>
+">Pridanie objednávok</a></li>
+<li><a href="<?php echo htmlSpecialChars($_control->link("Administrator:editdefault")) ?>
+">Editovanie objednávok</a></li>
+<li><a href="<?php echo htmlSpecialChars($_control->link("Administrator:accepted")) ?>
+">Zobrazenie prijatých objednávok</a></li>
+<li><a href="<?php echo htmlSpecialChars($_control->link("Administrator:confirmed")) ?>
+">Zobrazenie potvrdených objednávok</a></li>
+<li><a href="<?php echo htmlSpecialChars($_control->link("Administrator:changed")) ?>
+">Zobrazenie zmeneneých objednávok</a></li>
+<li><a href="<?php echo htmlSpecialChars($_control->link("Administrator:confirmchange")) ?>
+">Potvrdenie/zmena objednávok</a></li>
+</ul>
+</div>
+<div class="menu2">
+<li><a href="<?php echo htmlSpecialChars($_control->link("Administrator:user")) ?>
+">Zobrazenie uzivatelov</a></li>
+<ul>
+<li><a href="<?php echo htmlSpecialChars($_control->link("Administrator:useradd")) ?>
+">Pridávanie užívateľov</a></li>
+<li><a href="<?php echo htmlSpecialChars($_control->link("Administrator:deleteedituser")) ?>
+">Mazanie užívateľov</a></li>
+<li><a href="<?php echo htmlSpecialChars($_control->link("Administrator:edituser")) ?>
+">Editovanie užívateľov</a></li>
+</ul>
 
 </div>
-<hr />
+
+<li><a href="<?php echo htmlSpecialChars($_control->link("Administrator:pacient")) ?>
+">Zobrazenie pacientov</a></li>
+<li><a href="<?php echo htmlSpecialChars($_control->link("Administrator:suroviny")) ?>
+">Zobrazenie surovín</a></li>
+<div class="menu2">
+
+<ul>
+<li><a href="<?php echo htmlSpecialChars($_control->link("Administrator:surovinyadd")) ?>
+">Doplnenenie surovín do skladu</a></li>
+
+
+</ul>
+
+</div>
+
+
+
+
+
+
+
+
+</ul>
+</div>
+
 <div class="center">
 <h1>Zobrazenie potvrdených objednávok</h1>
 
@@ -47,7 +79,7 @@ if (!function_exists($_l->blocks['content'][] = '_lbae1251c2de_content')) { func
     <thead>
     <tr>
         <th>Oddelenie</th>
-      
+      <th>Preferované jídlo</th>
         <th>Stav objednávky</th>
 		<th>Meno pacienta</th>
         <th>Priezvisko pacienta</th>    
@@ -57,8 +89,9 @@ if (!function_exists($_l->blocks['content'][] = '_lbae1251c2de_content')) { func
 <?php $iterations = 0; foreach ($objednavkys as $objednavky): ?>
                 <tr>
                         <td><?php echo Nette\Templating\Helpers::escapeHtml($objednavky->oddeleni, ENT_NOQUOTES) ?></td>
-                      
+                      <td><?php echo Nette\Templating\Helpers::escapeHtml($objednavky->jidlo->nazev_jidla, ENT_NOQUOTES) ?></td>
                         <td><?php echo Nette\Templating\Helpers::escapeHtml($objednavky->stav, ENT_NOQUOTES) ?></td>
+						 <td><?php echo Nette\Templating\Helpers::escapeHtml($objednavky->rc_pacienta, ENT_NOQUOTES) ?></td>
 						
 
 						
@@ -93,5 +126,7 @@ if ($_l->extends) {
 //
 // main template
 //
-if ($_l->extends) { ob_end_clean(); return Nette\Latte\Macros\CoreMacros::includeTemplate($_l->extends, get_defined_vars(), $template)->render(); }
+?>
+
+<?php if ($_l->extends) { ob_end_clean(); return Nette\Latte\Macros\CoreMacros::includeTemplate($_l->extends, get_defined_vars(), $template)->render(); }
 call_user_func(reset($_l->blocks['content']), $_l, get_defined_vars()) ; 

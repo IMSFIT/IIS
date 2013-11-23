@@ -70,4 +70,21 @@ INSERT INTO jidlo(id_jidla,nazev_jidla) VALUES ('2222221','Vepøový øízek');
 
 							insert into  diety_jidel (id_jidla,id_diety) values ('2222223',  '1111112');
 
+
+
+INSERT INTO `roles` (`id_role`, `nazov`) VALUES
+(1, 'admin'),
+(2, 'kucharka'),
+(3, 'sestra');
+INSERT INTO `aktivita` (`id_aktivita`, `nazov`) VALUES
+(1, 'neaktivny'),
+(2, 'aktivny');
+
+INSERT INTO `user` (`id`, `username`, `password`, `name`, `id_role`, `aktivita_uctu`) VALUES
+(1, 'admin', '$2a$07$uz2qk98utlh56c1a9pmdlupKXB.w.lWRrFr80jCdZgEN4vINA5SSa', 'admin', 1, 2),
+(2, 'kucharka', '$2a$07$66hix6uzkqqep5ne58qdxewjXcSEBj9QzJvTLV.EGDIKS0TaiBZ42', 'kucharka', 2, 2),
+(3, 'sestra', '$2a$07$3y7uw20zmbggpozctrvehuwx4YeUqEUVWa5h329is0aFOq7YpdL3m', 'sestra', 3, 2);
+
+
+
 							

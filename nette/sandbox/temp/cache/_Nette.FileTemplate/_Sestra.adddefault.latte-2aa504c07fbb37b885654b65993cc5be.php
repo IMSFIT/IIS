@@ -1,25 +1,48 @@
-<?php //netteCache[01]000452a:2:{s:4:"time";s:21:"0.94550300 1385043195";s:9:"callbacks";a:2:{i:0;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:129:"C:\Program Files (x86)\EasyPHP-DevServer-13.1VC11\data\localweb\projects\IIS2\nette\sandbox\app\templates\Sestra\adddefault.latte";i:2;i:1385043195;}i:1;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:10:"checkConst";}i:1;s:25:"Nette\Framework::REVISION";i:2;s:30:"80a7e46 released on 2013-08-08";}}}?><?php
+<?php //netteCache[01]000452a:2:{s:4:"time";s:21:"0.71801000 1385217379";s:9:"callbacks";a:2:{i:0;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:129:"C:\Program Files (x86)\EasyPHP-DevServer-13.1VC11\data\localweb\projects\IIS2\nette\sandbox\app\templates\Sestra\adddefault.latte";i:2;i:1385217378;}i:1;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:10:"checkConst";}i:1;s:25:"Nette\Framework::REVISION";i:2;s:30:"80a7e46 released on 2013-08-08";}}}?><?php
 
 // source file: C:\Program Files (x86)\EasyPHP-DevServer-13.1VC11\data\localweb\projects\IIS2\nette\sandbox\app\templates\Sestra\adddefault.latte
 
 ?><?php
 // prolog Nette\Latte\Macros\CoreMacros
-list($_l, $_g) = Nette\Latte\Macros\CoreMacros::initRuntime($template, 'ff20id8ubw')
+list($_l, $_g) = Nette\Latte\Macros\CoreMacros::initRuntime($template, 'mbztox7nml')
 ;
 // prolog Nette\Latte\Macros\UIMacros
 //
 // block content
 //
-if (!function_exists($_l->blocks['content'][] = '_lbacc961b996_content')) { function _lbacc961b996_content($_l, $_args) { extract($_args)
-?><div class="left">
-<a href="<?php echo htmlSpecialChars($_control->link("Sestra:pacient")) ?>">Zobrazenie pacientov</a>
-<a href="<?php echo htmlSpecialChars($_control->link("Sestra:deleteeditdefault")) ?>
-">Mazanie a Editovanie Objednávok</a>
-<a href="<?php echo htmlSpecialChars($_control->link("Sestra:default")) ?>">Zobrazenie objednávok</a>
+if (!function_exists($_l->blocks['content'][] = '_lb5220ebe5fa_content')) { function _lb5220ebe5fa_content($_l, $_args) { extract($_args)
+?><div class="menu">
+<ul>
+<li><a href="<?php echo htmlSpecialChars($_control->link("Sestra:default")) ?>">Zobrazenie všetkých objednávok</a></li>
+<div class="menu2">
+<ul>
+<li><a href="<?php echo htmlSpecialChars($_control->link("Sestra:deleteeditdefault")) ?>
+">Mazanie Objednávok</a></li>
+<li><a href="<?php echo htmlSpecialChars($_control->link("Sestra:adddefault")) ?>
+">Pridanie objednávok</a></li>
+<li><a href="<?php echo htmlSpecialChars($_control->link("Sestra:editdefault")) ?>
+">Editovanie objednávok</a></li>
+<li><a href="<?php echo htmlSpecialChars($_control->link("Sestra:accepted")) ?>">Zobrazenie prijatých objednávok</a></li>
+<li><a href="<?php echo htmlSpecialChars($_control->link("Sestra:confirmed")) ?>
+">Zobrazenie potvrdených objednávok</a></li>
+<li><a href="<?php echo htmlSpecialChars($_control->link("Sestra:changed")) ?>">Zobrazenie zmeneneých objednávok</a></li>
+</ul>
 </div>
 
-<hr />
-<div class="center">
+
+<li><a href="<?php echo htmlSpecialChars($_control->link("Sestra:pacient")) ?>">Zobrazenie pacientov</a></li>
+
+
+
+
+
+
+
+
+
+</ul>
+</div>
+<div class="center2">
 
 <h1>Zobrazenie objednávok a ich pridávanie nových</h1>
 
@@ -86,7 +109,5 @@ if ($_l->extends) {
 //
 // main template
 //
-?>
-
-<?php if ($_l->extends) { ob_end_clean(); return Nette\Latte\Macros\CoreMacros::includeTemplate($_l->extends, get_defined_vars(), $template)->render(); }
+if ($_l->extends) { ob_end_clean(); return Nette\Latte\Macros\CoreMacros::includeTemplate($_l->extends, get_defined_vars(), $template)->render(); }
 call_user_func(reset($_l->blocks['content']), $_l, get_defined_vars()) ; 

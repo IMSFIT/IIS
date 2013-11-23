@@ -1,32 +1,51 @@
-<?php //netteCache[01]000452a:2:{s:4:"time";s:21:"0.01131400 1385049172";s:9:"callbacks";a:2:{i:0;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:129:"C:\Program Files (x86)\EasyPHP-DevServer-13.1VC11\data\localweb\projects\IIS2\nette\sandbox\app\templates\Kucharka\suroviny.latte";i:2;i:1385046451;}i:1;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:10:"checkConst";}i:1;s:25:"Nette\Framework::REVISION";i:2;s:30:"80a7e46 released on 2013-08-08";}}}?><?php
+<?php //netteCache[01]000452a:2:{s:4:"time";s:21:"0.85263400 1385218736";s:9:"callbacks";a:2:{i:0;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:129:"C:\Program Files (x86)\EasyPHP-DevServer-13.1VC11\data\localweb\projects\IIS2\nette\sandbox\app\templates\Kucharka\suroviny.latte";i:2;i:1385218617;}i:1;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:10:"checkConst";}i:1;s:25:"Nette\Framework::REVISION";i:2;s:30:"80a7e46 released on 2013-08-08";}}}?><?php
 
 // source file: C:\Program Files (x86)\EasyPHP-DevServer-13.1VC11\data\localweb\projects\IIS2\nette\sandbox\app\templates\Kucharka\suroviny.latte
 
 ?><?php
 // prolog Nette\Latte\Macros\CoreMacros
-list($_l, $_g) = Nette\Latte\Macros\CoreMacros::initRuntime($template, 'a0k3b8lkx3')
+list($_l, $_g) = Nette\Latte\Macros\CoreMacros::initRuntime($template, '0xwbov3w0k')
 ;
 // prolog Nette\Latte\Macros\UIMacros
 //
 // block content
 //
-if (!function_exists($_l->blocks['content'][] = '_lb14e71e0ade_content')) { function _lb14e71e0ade_content($_l, $_args) { extract($_args)
-?><div class="left">
-<a href="<?php echo htmlSpecialChars($_control->link("Kucharka:objednavka")) ?>">Zobrazenie objednávok</a>
-<a href="<?php echo htmlSpecialChars($_control->link("Kucharka:deleteeditdefault")) ?>
-">Mazanie a Editovanie Objednávok</a>
-<a href="<?php echo htmlSpecialChars($_control->link("Kucharka:confirmchange")) ?>
-">Mazanie a Editovanie Objednávok</a>
+if (!function_exists($_l->blocks['content'][] = '_lb3a4f6031fe_content')) { function _lb3a4f6031fe_content($_l, $_args) { extract($_args)
+?><div class="menu">
+<ul>
+<li><a href="<?php echo htmlSpecialChars($_control->link("Kucharka:objednavka")) ?>
+">Zobrazenie všetkých objednávok</a></li>
+<div class="menu2">
+<ul>
 
+<li><a href="<?php echo htmlSpecialChars($_control->link("Kucharka:confirmchange")) ?>
+">Potvrdenie/zmena objednávok</a></li>
 
-
-
-
-<a href="<?php echo htmlSpecialChars($_control->link("Kucharka:surovinyadd")) ?>
-">Doplnenenie surovín do skladu</a>
+</ul>
 </div>
-<hr />
-<div class="center">
+<li><a href="<?php echo htmlSpecialChars($_control->link("Kucharka:suroviny")) ?>
+">Zobrazenie surovín</a></li>
+<div class="menu2">
+
+<ul>
+<li><a href="<?php echo htmlSpecialChars($_control->link("Kucharka:surovinyadd")) ?>
+">Doplnenenie surovín do skladu</a></li>
+
+
+</ul>
+
+</div>
+
+
+
+
+
+
+
+
+</ul>
+</div>
+<div class="center3">
 <h1>Zobrazenie surovín</h1>
 
 
@@ -83,5 +102,7 @@ if ($_l->extends) {
 //
 // main template
 //
-if ($_l->extends) { ob_end_clean(); return Nette\Latte\Macros\CoreMacros::includeTemplate($_l->extends, get_defined_vars(), $template)->render(); }
+?>
+
+<?php if ($_l->extends) { ob_end_clean(); return Nette\Latte\Macros\CoreMacros::includeTemplate($_l->extends, get_defined_vars(), $template)->render(); }
 call_user_func(reset($_l->blocks['content']), $_l, get_defined_vars()) ; 

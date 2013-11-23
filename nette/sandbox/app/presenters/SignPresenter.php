@@ -23,7 +23,9 @@ class SignPresenter extends BasePresenter
                 $form->addPassword('password', 'Password:')
                         ->setRequired('Please enter your password.');
 
-                               $form->addSubmit('login', 'Sign in');
+                $form->addCheckbox('remember', 'Keep me signed in');
+
+                $form->addSubmit('login', 'Sign in');
 
                 // call method signInFormSucceeded() on success
                 $form->onSuccess[] = $this->signInFormSucceeded;
@@ -36,21 +38,29 @@ class SignPresenter extends BasePresenter
         {
                 $values = $form->getValues();
 
-                 ///$this->getUser()->setExpiration('+ 20 minutes', TRUE);
+                if ($values->remember) {
+                        $this->getUser()->setExpiration('+ 14 days', FALSE);
+                } else {
+                        $this->getUser()->setExpiration('+ 20 minutes', TRUE);
+                }
 
-                try {	
-						
-                        $user = $this->getUser();
-						$user->login($values->username, $values->password); 
-						
-						$this->redirect('Administrator:');
-                } 
-				catch (Nette\Security\AuthenticationException $e) {
+                try {
+                        $this->getUser()->login($values->username, $values->password);
+                } catch (Nette\Security\AuthenticationException $e) {
                         $form->addError($e->getMessage());
                         return;
                 }
 
-                
+                $this->redirect('Administrator:');
         }
-		
+
+
+
+        public function actionOut()
+        {
+                $this->getUser()->logout();
+                $this->flashMessage('You have been signed out.');
+                $this->redirect('in');
+        }
+
 }

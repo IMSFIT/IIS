@@ -1,17 +1,41 @@
 {block content}
-<div class="left">
-<a n:href="Sestra:pacient ">Zobrazenie pacientov</a>
-<a n:href="Sestra:deleteeditdefault">Mazanie a Editovanie Objednávok</a>
-<a n:href="Sestra:pacient">Pridanie objednávok</a>
-
-
+<div class="menu">
+<ul>
+<li><a n:href="Sestra:default ">Zobrazenie všetkých objednávok</a></li>
+<div class="menu2">
+<ul>
+<li><a n:href="Sestra:deleteeditdefault">Mazanie Objednávok</a></li>
+<li><a n:href="Sestra:adddefault">Pridanie objednávok</a></li>
+<li><a n:href="Sestra:editdefault">Editovanie objednávok</a></li>
+<li><a n:href="Sestra:accepted">Zobrazenie prijatých objednávok</a></li>
+<li><a n:href="Sestra:confirmed">Zobrazenie potvrdených objednávok</a></li>
+<li><a n:href="Sestra:changed">Zobrazenie zmeneneých objednávok</a></li>
+</ul>
 </div>
-<hr>
-<div class="center">
-<h1>Zobrazenie objednávok a ich mazanie a editácia</h1>
 
 
-//tu príde editovatelná tabuľka
+<li><a n:href="Sestra:pacient">Zobrazenie pacientov</a></li>
+
+
+
+
+
+
+
+
+
+</ul>
+</div>
+<div class="center2">
+<h1>Zobrazenie objednávok a ich mazanie</h1>
+
+
+<fieldset>
+    <legend>Zmazanie objednávky</legend>
+
+    {control taskForm111}
+</fieldset>
+
 
 
 

@@ -1,16 +1,16 @@
-<?php //netteCache[01]000459a:2:{s:4:"time";s:21:"0.80463700 1385217250";s:9:"callbacks";a:2:{i:0;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:136:"C:\Program Files (x86)\EasyPHP-DevServer-13.1VC11\data\localweb\projects\IIS2\nette\sandbox\app\templates\Sestra\deleteeditdefault.latte";i:2;i:1385217245;}i:1;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:10:"checkConst";}i:1;s:25:"Nette\Framework::REVISION";i:2;s:30:"80a7e46 released on 2013-08-08";}}}?><?php
+<?php //netteCache[01]000453a:2:{s:4:"time";s:21:"0.66373600 1385217654";s:9:"callbacks";a:2:{i:0;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:130:"C:\Program Files (x86)\EasyPHP-DevServer-13.1VC11\data\localweb\projects\IIS2\nette\sandbox\app\templates\Sestra\editdefault.latte";i:2;i:1385217653;}i:1;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:10:"checkConst";}i:1;s:25:"Nette\Framework::REVISION";i:2;s:30:"80a7e46 released on 2013-08-08";}}}?><?php
 
-// source file: C:\Program Files (x86)\EasyPHP-DevServer-13.1VC11\data\localweb\projects\IIS2\nette\sandbox\app\templates\Sestra\deleteeditdefault.latte
+// source file: C:\Program Files (x86)\EasyPHP-DevServer-13.1VC11\data\localweb\projects\IIS2\nette\sandbox\app\templates\Sestra\editdefault.latte
 
 ?><?php
 // prolog Nette\Latte\Macros\CoreMacros
-list($_l, $_g) = Nette\Latte\Macros\CoreMacros::initRuntime($template, 'ldsoo921ns')
+list($_l, $_g) = Nette\Latte\Macros\CoreMacros::initRuntime($template, '9r8iupa77e')
 ;
 // prolog Nette\Latte\Macros\UIMacros
 //
 // block content
 //
-if (!function_exists($_l->blocks['content'][] = '_lb6f274b73af_content')) { function _lb6f274b73af_content($_l, $_args) { extract($_args)
+if (!function_exists($_l->blocks['content'][] = '_lb079958afaf_content')) { function _lb079958afaf_content($_l, $_args) { extract($_args)
 ?><div class="menu">
 <ul>
 <li><a href="<?php echo htmlSpecialChars($_control->link("Sestra:default")) ?>">Zobrazenie všetkých objednávok</a></li>
@@ -42,34 +42,32 @@ if (!function_exists($_l->blocks['content'][] = '_lb6f274b73af_content')) { func
 
 </ul>
 </div>
+
 <div class="center2">
-<h1>Zobrazenie objednávok a ich mazanie</h1>
-
-
+<h1>Editácia objednávok</h1>
 <fieldset>
-    <legend>Zmazanie objednávky</legend>
+    <legend>Editácia objednávok</legend>
 
-<?php $_ctrl = $_control->getComponent("taskForm111"); if ($_ctrl instanceof Nette\Application\UI\IRenderable) $_ctrl->validateControl(); $_ctrl->render() ?>
+<?php $_ctrl = $_control->getComponent("taskForm6"); if ($_ctrl instanceof Nette\Application\UI\IRenderable) $_ctrl->validateControl(); $_ctrl->render() ?>
 </fieldset>
-
-
-
 
 <table>
     <thead>
     <tr>
+		 <th>ID objednávky</th>
         <th>Oddelenie</th>
         <th>Preferované jedlo</th>
         <th>Stav objednávky</th>
-		<th>Meno pacienta</th>
+		<th>RC pacienta</th>
         <th>Priezvisko pacienta</th>    
     </tr>
     </thead>
     <tbody>
 <?php $iterations = 0; foreach ($objednavkys as $objednavky): ?>
-                <tr>
+                <tr>	
+						<td><?php echo Nette\Templating\Helpers::escapeHtml($objednavky->id_objednavky, ENT_NOQUOTES) ?></td>
                         <td><?php echo Nette\Templating\Helpers::escapeHtml($objednavky->oddeleni, ENT_NOQUOTES) ?></td>
-                        <td><?php echo Nette\Templating\Helpers::escapeHtml($objednavky->jidlo->nazev_jidla, ENT_NOQUOTES) ?></td>
+                    <td><?php echo Nette\Templating\Helpers::escapeHtml($objednavky->jidlo->nazev_jidla, ENT_NOQUOTES) ?></td>
                         <td><?php echo Nette\Templating\Helpers::escapeHtml($objednavky->stav, ENT_NOQUOTES) ?></td>
 						 <td><?php echo Nette\Templating\Helpers::escapeHtml($objednavky->rc_pacienta, ENT_NOQUOTES) ?></td>
 
@@ -79,8 +77,8 @@ if (!function_exists($_l->blocks['content'][] = '_lb6f274b73af_content')) { func
    
     </tbody>
 </table>
-</div>
 
+</div>
 
 
 <?php
@@ -105,5 +103,11 @@ if ($_l->extends) {
 //
 // main template
 //
-if ($_l->extends) { ob_end_clean(); return Nette\Latte\Macros\CoreMacros::includeTemplate($_l->extends, get_defined_vars(), $template)->render(); }
+?>
+
+
+
+
+
+<?php if ($_l->extends) { ob_end_clean(); return Nette\Latte\Macros\CoreMacros::includeTemplate($_l->extends, get_defined_vars(), $template)->render(); }
 call_user_func(reset($_l->blocks['content']), $_l, get_defined_vars()) ; 

@@ -1,30 +1,48 @@
-<?php //netteCache[01]000450a:2:{s:4:"time";s:21:"0.45858400 1385043092";s:9:"callbacks";a:2:{i:0;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:127:"C:\Program Files (x86)\EasyPHP-DevServer-13.1VC11\data\localweb\projects\IIS2\nette\sandbox\app\templates\Sestra\accepted.latte";i:2;i:1385043083;}i:1;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:10:"checkConst";}i:1;s:25:"Nette\Framework::REVISION";i:2;s:30:"80a7e46 released on 2013-08-08";}}}?><?php
+<?php //netteCache[01]000450a:2:{s:4:"time";s:21:"0.65319500 1385217697";s:9:"callbacks";a:2:{i:0;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:127:"C:\Program Files (x86)\EasyPHP-DevServer-13.1VC11\data\localweb\projects\IIS2\nette\sandbox\app\templates\Sestra\accepted.latte";i:2;i:1385216842;}i:1;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:10:"checkConst";}i:1;s:25:"Nette\Framework::REVISION";i:2;s:30:"80a7e46 released on 2013-08-08";}}}?><?php
 
 // source file: C:\Program Files (x86)\EasyPHP-DevServer-13.1VC11\data\localweb\projects\IIS2\nette\sandbox\app\templates\Sestra\accepted.latte
 
 ?><?php
 // prolog Nette\Latte\Macros\CoreMacros
-list($_l, $_g) = Nette\Latte\Macros\CoreMacros::initRuntime($template, 'vdo625bro4')
+list($_l, $_g) = Nette\Latte\Macros\CoreMacros::initRuntime($template, 'gaknik92j4')
 ;
 // prolog Nette\Latte\Macros\UIMacros
 //
 // block content
 //
-if (!function_exists($_l->blocks['content'][] = '_lb3afdd06ccb_content')) { function _lb3afdd06ccb_content($_l, $_args) { extract($_args)
-?><div class="left">
-
-<a href="<?php echo htmlSpecialChars($_control->link("Sestra:pacient")) ?>">Zobrazenie pacientov</a>
-<a href="<?php echo htmlSpecialChars($_control->link("Sestra:deleteeditdefault")) ?>
-">Mazanie a Editovanie Objednávok</a>
-<a href="<?php echo htmlSpecialChars($_control->link("Sestra:pacient")) ?>">Pridanie objednávok</a>
-<a href="<?php echo htmlSpecialChars($_control->link("Sestra:accepted")) ?>">Zobrazenie prijatých objednávok</a>
-<a href="<?php echo htmlSpecialChars($_control->link("Sestra:confirmed")) ?>">Zobrazenie potvredných objednávok</a>
-<a href="<?php echo htmlSpecialChars($_control->link("Sestra:changed")) ?>">Zobrazenie zmenených objednávok</a>
-
-
+if (!function_exists($_l->blocks['content'][] = '_lb3757dd62a3_content')) { function _lb3757dd62a3_content($_l, $_args) { extract($_args)
+?><div class="menu">
+<ul>
+<li><a href="<?php echo htmlSpecialChars($_control->link("Sestra:default")) ?>">Zobrazenie všetkých objednávok</a></li>
+<div class="menu2">
+<ul>
+<li><a href="<?php echo htmlSpecialChars($_control->link("Sestra:deleteeditdefault")) ?>
+">Mazanie Objednávok</a></li>
+<li><a href="<?php echo htmlSpecialChars($_control->link("Sestra:adddefault")) ?>
+">Pridanie objednávok</a></li>
+<li><a href="<?php echo htmlSpecialChars($_control->link("Sestra:editdefault")) ?>
+">Editovanie objednávok</a></li>
+<li><a href="<?php echo htmlSpecialChars($_control->link("Sestra:accepted")) ?>">Zobrazenie prijatých objednávok</a></li>
+<li><a href="<?php echo htmlSpecialChars($_control->link("Sestra:confirmed")) ?>
+">Zobrazenie potvrdených objednávok</a></li>
+<li><a href="<?php echo htmlSpecialChars($_control->link("Sestra:changed")) ?>">Zobrazenie zmeneneých objednávok</a></li>
+</ul>
 </div>
-<hr />
-<div class="center">
+
+
+<li><a href="<?php echo htmlSpecialChars($_control->link("Sestra:pacient")) ?>">Zobrazenie pacientov</a></li>
+
+
+
+
+
+
+
+
+
+</ul>
+</div>
+<div class="center2">
 <h1>Zobrazenie prijatých objednávok</h1>
 
 <table>

@@ -1,30 +1,48 @@
-<?php //netteCache[01]000451a:2:{s:4:"time";s:21:"0.60749300 1385043370";s:9:"callbacks";a:2:{i:0;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:128:"C:\Program Files (x86)\EasyPHP-DevServer-13.1VC11\data\localweb\projects\IIS2\nette\sandbox\app\templates\Sestra\confirmed.latte";i:2;i:1385043362;}i:1;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:10:"checkConst";}i:1;s:25:"Nette\Framework::REVISION";i:2;s:30:"80a7e46 released on 2013-08-08";}}}?><?php
+<?php //netteCache[01]000451a:2:{s:4:"time";s:21:"0.76127600 1385216964";s:9:"callbacks";a:2:{i:0;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:128:"C:\Program Files (x86)\EasyPHP-DevServer-13.1VC11\data\localweb\projects\IIS2\nette\sandbox\app\templates\Sestra\confirmed.latte";i:2;i:1385216961;}i:1;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:10:"checkConst";}i:1;s:25:"Nette\Framework::REVISION";i:2;s:30:"80a7e46 released on 2013-08-08";}}}?><?php
 
 // source file: C:\Program Files (x86)\EasyPHP-DevServer-13.1VC11\data\localweb\projects\IIS2\nette\sandbox\app\templates\Sestra\confirmed.latte
 
 ?><?php
 // prolog Nette\Latte\Macros\CoreMacros
-list($_l, $_g) = Nette\Latte\Macros\CoreMacros::initRuntime($template, 'n8im1wb8ix')
+list($_l, $_g) = Nette\Latte\Macros\CoreMacros::initRuntime($template, '9hh81ohrgc')
 ;
 // prolog Nette\Latte\Macros\UIMacros
 //
 // block content
 //
-if (!function_exists($_l->blocks['content'][] = '_lb058c4e491c_content')) { function _lb058c4e491c_content($_l, $_args) { extract($_args)
-?><div class="left">
-<a href="<?php echo htmlSpecialChars($_control->link("Sestra:pacient")) ?>">Zobrazenie pacientov</a>
-<a href="<?php echo htmlSpecialChars($_control->link("Sestra:deleteeditdefault")) ?>
-">Mazanie a Editovanie Objednávok</a>
-<a href="<?php echo htmlSpecialChars($_control->link("Sestra:adddefault")) ?>">Pridanie objednávok</a>
-<a href="<?php echo htmlSpecialChars($_control->link("Sestra:accepted")) ?>">Zobrazenie prijatých objednávok</a>
-<a href="<?php echo htmlSpecialChars($_control->link("Sestra:confirmed")) ?>">Zobrazenie potvredných objednávok</a>
-<a href="<?php echo htmlSpecialChars($_control->link("Sestra:changed")) ?>">Zobrazenie zmenených objednávok</a>
-
-
-
+if (!function_exists($_l->blocks['content'][] = '_lbabb2820473_content')) { function _lbabb2820473_content($_l, $_args) { extract($_args)
+?><div class="menu">
+<ul>
+<li><a href="<?php echo htmlSpecialChars($_control->link("Sestra:default")) ?>">Zobrazenie všetkých objednávok</a></li>
+<div class="menu2">
+<ul>
+<li><a href="<?php echo htmlSpecialChars($_control->link("Sestra:deleteeditdefault")) ?>
+">Mazanie Objednávok</a></li>
+<li><a href="<?php echo htmlSpecialChars($_control->link("Sestra:adddefault")) ?>
+">Pridanie objednávok</a></li>
+<li><a href="<?php echo htmlSpecialChars($_control->link("Sestra:editdefault")) ?>
+">Editovanie objednávok</a></li>
+<li><a href="<?php echo htmlSpecialChars($_control->link("Sestra:accepted")) ?>">Zobrazenie prijatých objednávok</a></li>
+<li><a href="<?php echo htmlSpecialChars($_control->link("Sestra:confirmed")) ?>
+">Zobrazenie potvrdených objednávok</a></li>
+<li><a href="<?php echo htmlSpecialChars($_control->link("Sestra:changed")) ?>">Zobrazenie zmeneneých objednávok</a></li>
+</ul>
 </div>
-<hr />
-<div class="center">
+
+
+<li><a href="<?php echo htmlSpecialChars($_control->link("Sestra:pacient")) ?>">Zobrazenie pacientov</a></li>
+
+
+
+
+
+
+
+
+
+</ul>
+</div>
+<div class="center2">
 <h1>Zobrazenie potvrdených objednávok</h1>
 
 <table>
@@ -40,9 +58,11 @@ if (!function_exists($_l->blocks['content'][] = '_lb058c4e491c_content')) { func
     <tbody>
 <?php $iterations = 0; foreach ($objednavkys as $objednavky): ?>
                 <tr>
-                        <td><?php echo Nette\Templating\Helpers::escapeHtml($objednavky->oddeleni, ENT_NOQUOTES) ?></td>
-                      
+                         <td><?php echo Nette\Templating\Helpers::escapeHtml($objednavky->oddeleni, ENT_NOQUOTES) ?></td>
+                     
                         <td><?php echo Nette\Templating\Helpers::escapeHtml($objednavky->stav, ENT_NOQUOTES) ?></td>
+                         <td><?php echo Nette\Templating\Helpers::escapeHtml($objednavky->jidlo->nazev_jidla, ENT_NOQUOTES) ?></td>
+                         <td><?php echo Nette\Templating\Helpers::escapeHtml($objednavky->rc_pacienta, ENT_NOQUOTES) ?></td>
 						
 
 						
