@@ -1,16 +1,16 @@
-<?php //netteCache[01]000442a:2:{s:4:"time";s:21:"0.93993500 1385150552";s:9:"callbacks";a:2:{i:0;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:119:"C:\Program Files (x86)\EasyPHP-DevServer-13.1VC11\data\localweb\projects\IIS2\nette\sandbox\app\templates\Sign\in.latte";i:2;i:1385150550;}i:1;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:10:"checkConst";}i:1;s:25:"Nette\Framework::REVISION";i:2;s:30:"80a7e46 released on 2013-08-08";}}}?><?php
+<?php //netteCache[01]000442a:2:{s:4:"time";s:21:"0.34917000 1385225512";s:9:"callbacks";a:2:{i:0;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:119:"C:\Program Files (x86)\EasyPHP-DevServer-13.1VC11\data\localweb\projects\IIS2\nette\sandbox\app\templates\Sign\in.latte";i:2;i:1385225511;}i:1;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:10:"checkConst";}i:1;s:25:"Nette\Framework::REVISION";i:2;s:30:"80a7e46 released on 2013-08-08";}}}?><?php
 
 // source file: C:\Program Files (x86)\EasyPHP-DevServer-13.1VC11\data\localweb\projects\IIS2\nette\sandbox\app\templates\Sign\in.latte
 
 ?><?php
 // prolog Nette\Latte\Macros\CoreMacros
-list($_l, $_g) = Nette\Latte\Macros\CoreMacros::initRuntime($template, 'ei8yxv1eqv')
+list($_l, $_g) = Nette\Latte\Macros\CoreMacros::initRuntime($template, 'pneqeonggi')
 ;
 // prolog Nette\Latte\Macros\UIMacros
 //
 // block content
 //
-if (!function_exists($_l->blocks['content'][] = '_lb9a20d5db7f_content')) { function _lb9a20d5db7f_content($_l, $_args) { extract($_args)
+if (!function_exists($_l->blocks['content'][] = '_lb86fe7b824e_content')) { function _lb86fe7b824e_content($_l, $_args) { extract($_args)
 ;call_user_func(reset($_l->blocks['title']), $_l, get_defined_vars())  ?>
 
 <?php Nette\Latte\Macros\FormMacros::renderFormBegin($form = $_form = (is_object("signInForm") ? "signInForm" : $_control["signInForm"]), array()) ?>
@@ -37,8 +37,8 @@ if (!function_exists($_l->blocks['content'][] = '_lb9a20d5db7f_content')) { func
 //
 // block title
 //
-if (!function_exists($_l->blocks['title'][] = '_lba48298c358_title')) { function _lba48298c358_title($_l, $_args) { extract($_args)
-?><h1>Přihlášení</h1>
+if (!function_exists($_l->blocks['title'][] = '_lb7854e434eb_title')) { function _lb7854e434eb_title($_l, $_args) { extract($_args)
+?><h1>Prihlásenie do systému</h1>
 <?php
 }}
 

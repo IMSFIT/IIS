@@ -17,41 +17,33 @@ class SignPresenter extends BasePresenter
         protected function createComponentSignInForm()
         {
                 $form = new UI\Form;
-                $form->addText('username', 'Username:')
-                        ->setRequired('Please enter your username.');
-
-                $form->addPassword('password', 'Password:')
-                        ->setRequired('Please enter your password.');
-
-                $form->addCheckbox('remember', 'Keep me signed in');
-
-                $form->addSubmit('login', 'Sign in');
-
-                // call method signInFormSucceeded() on success
-                $form->onSuccess[] = $this->signInFormSucceeded;
-                return $form;
+                $form->addText('username', 'Login:', 30, 20);
+    $form->addPassword('password', 'Heslo:', 30);
+   
+    $form->addSubmit('login', 'Prihlásiť sa');
+    $form->onSuccess[] = $this->signInFormSucceeded;
+    return $form;
         }
 
 
 
         public function signInFormSucceeded($form)
         {
-                $values = $form->getValues();
-
-                if ($values->remember) {
-                        $this->getUser()->setExpiration('+ 14 days', FALSE);
-                } else {
-                        $this->getUser()->setExpiration('+ 20 minutes', TRUE);
-                }
-
                 try {
-                        $this->getUser()->login($values->username, $values->password);
-                } catch (Nette\Security\AuthenticationException $e) {
-                        $form->addError($e->getMessage());
-                        return;
-                }
-
-                $this->redirect('Administrator:');
+        	$user = $this->getUser();
+       	 $values = $form->getValues();
+       	 
+         $user->setExpiration('+30 seconds', FALSE);
+       		 
+        $user->login($values->username, $values->password);
+        
+		echo $user->role->nazov;
+        //$this->redirect('Administrator:');
+   		 } 
+		 catch (NS\AuthenticationException $e) 
+		 {
+        $form->addError('Neplatné uívateľské meno alebo heslo.');
+    		}
         }
 
 

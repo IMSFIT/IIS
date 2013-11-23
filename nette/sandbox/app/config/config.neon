@@ -21,7 +21,7 @@ common:
 			password:
 		session:
 			autoStart: smart
-			expiration: +30 days
+			expiration: +30 seconds
          
 
 
