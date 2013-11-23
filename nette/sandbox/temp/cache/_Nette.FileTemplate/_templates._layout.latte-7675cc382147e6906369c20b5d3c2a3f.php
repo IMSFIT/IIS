@@ -1,30 +1,30 @@
-<?php //netteCache[01]000442a:2:{s:4:"time";s:21:"0.45455100 1385071135";s:9:"callbacks";a:2:{i:0;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:119:"C:\Program Files (x86)\EasyPHP-DevServer-13.1VC11\data\localweb\projects\IIS2\nette\sandbox\app\templates\@layout.latte";i:2;i:1385071134;}i:1;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:10:"checkConst";}i:1;s:25:"Nette\Framework::REVISION";i:2;s:30:"80a7e46 released on 2013-08-08";}}}?><?php
+<?php //netteCache[01]000442a:2:{s:4:"time";s:21:"0.87891100 1385150782";s:9:"callbacks";a:2:{i:0;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:119:"C:\Program Files (x86)\EasyPHP-DevServer-13.1VC11\data\localweb\projects\IIS2\nette\sandbox\app\templates\@layout.latte";i:2;i:1385150779;}i:1;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:10:"checkConst";}i:1;s:25:"Nette\Framework::REVISION";i:2;s:30:"80a7e46 released on 2013-08-08";}}}?><?php
 
 // source file: C:\Program Files (x86)\EasyPHP-DevServer-13.1VC11\data\localweb\projects\IIS2\nette\sandbox\app\templates\@layout.latte
 
 ?><?php
 // prolog Nette\Latte\Macros\CoreMacros
-list($_l, $_g) = Nette\Latte\Macros\CoreMacros::initRuntime($template, 'ucxtauw8eu')
+list($_l, $_g) = Nette\Latte\Macros\CoreMacros::initRuntime($template, 'f1vmsy6lb8')
 ;
 // prolog Nette\Latte\Macros\UIMacros
 //
 // block title
 //
-if (!function_exists($_l->blocks['title'][] = '_lbba8011d7af_title')) { function _lbba8011d7af_title($_l, $_args) { extract($_args)
+if (!function_exists($_l->blocks['title'][] = '_lbf6734c104c_title')) { function _lbf6734c104c_title($_l, $_args) { extract($_args)
 ;
 }}
 
 //
 // block head
 //
-if (!function_exists($_l->blocks['head'][] = '_lb1d168d974a_head')) { function _lb1d168d974a_head($_l, $_args) { extract($_args)
+if (!function_exists($_l->blocks['head'][] = '_lb81cc3eafc0_head')) { function _lb81cc3eafc0_head($_l, $_args) { extract($_args)
 ;
 }}
 
 //
 // block scripts
 //
-if (!function_exists($_l->blocks['scripts'][] = '_lbccd3296e5d_scripts')) { function _lbccd3296e5d_scripts($_l, $_args) { extract($_args)
+if (!function_exists($_l->blocks['scripts'][] = '_lb9648d80704_scripts')) { function _lb9648d80704_scripts($_l, $_args) { extract($_args)
 ?>        <script src="<?php echo htmlSpecialChars($basePath) ?>/js/jquery.js"></script>
         <script src="<?php echo htmlSpecialChars($basePath) ?>/js/netteForms.js"></script>
         <script src="<?php echo htmlSpecialChars($basePath) ?>/js/main.js"></script>
@@ -77,7 +77,7 @@ ob_start(); call_user_func(reset($_l->blocks['title']), $_l, get_defined_vars())
                         <span class="icon user"><?php echo Nette\Templating\Helpers::escapeHtml($user->getIdentity()->name, ENT_NOQUOTES) ?></span> |
                         <a href="<?php echo htmlSpecialChars($_control->link("User:password")) ?>
 ">Změna hesla</a> |
-                        <a href="<?php echo htmlSpecialChars($_control->link("Sign:out")) ?>
+                        <a href="<?php echo htmlSpecialChars($_control->link("signOut!")) ?>
 ">Odhlásit se</a>
                 </div>
 <?php endif ?>

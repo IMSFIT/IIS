@@ -21,6 +21,7 @@ abstract class BasePresenter extends Nette\Application\UI\Presenter
 		protected $rolesRepository;
 		protected $stavRepository;
 		
+		
 
  public function injectBase(Todo\Objednavka_Na_KuchynRepository $objednavkaRepository,Todo\PacientRepository $pacientRepository,Todo\JidloRepository $jidlaRepository,Todo\SurovinyRepository $surovinyRepository,Todo\UserRepository $userRepository,Todo\RolesRepository $rolesRepository,Todo\StavRepository $stavRepository)
         {
@@ -31,6 +32,7 @@ abstract class BasePresenter extends Nette\Application\UI\Presenter
 				$this->userRepository = $userRepository;
 				$this->rolesRepository = $rolesRepository;
 				$this->stavRepository = $stavRepository;
+				//$this->authenticator = $authenticator;
         }
 
 

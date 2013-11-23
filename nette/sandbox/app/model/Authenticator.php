@@ -1,9 +1,8 @@
 <?php
 
-namespace Todo;
 
-use Nette,
-        Nette\Security,
+
+use  Nette\Security,
         Nette\Utils\Strings;
 
 
@@ -17,7 +16,7 @@ class Authenticator extends Nette\Object implements Security\IAuthenticator
 
 
 
-        public function __construct(UserRepository $users)
+        public function __construct(Todo\UserRepository $users)
         {
                 $this->users = $users;
         }
@@ -32,19 +31,19 @@ class Authenticator extends Nette\Object implements Security\IAuthenticator
         public function authenticate(array $credentials)
         {
                 list($username, $password) = $credentials;
-    			$row = $this->userRepository->findByName($username);
+    			$row = $this->users->findByName($username);
 
 			    if (!$row) 
 				{
-        				throw new NS\AuthenticationException("User '$username' not found.", self::IDENTITY_NOT_FOUND);
+        				throw new   Nette\Security\AuthenticationException("User '$username' not found.", self::IDENTITY_NOT_FOUND);
     			}
 
    				 if ($row->password !== self::calculateHash($password, $row->password)) {
-        			throw new NS\AuthenticationException("Invalid password.", self::INVALID_CREDENTIAL);
+        			throw new   Nette\Security\AuthenticationException("Invalid password.", self::INVALID_CREDENTIAL);
    			 }
-
+				dump($row);
     			unset($row->password);
-    				return new NS\Identity($row->id, NULL, $row->toArray());
+    				return new    Nette\Security\Identity($row->id, NULL, $row->toArray());
         }
 
 

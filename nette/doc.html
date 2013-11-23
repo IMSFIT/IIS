@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title>Projekt IIS</title>
+    <style type="text/css">
+    	table { border-collapse: collapse; }
+    	td, th { border: 1px solid black; padding: 0.3em 0.5em; text-align: left; }
+    	dt { font-weight: bold; margin-top: 0.5em; }
+    </style>
+</head>
+<body>
+
+
+
+<h1>Diétní kuchyň</h1> 
+
+<dl>
+	<dt>Autoři</dt>
+	<dd>Martin Maga 
+	    <a href="mailto:xmagam00@stud.fit.vutbr.cz">xmaga00@stud.fit.vutbr.cz</a> -
+		Správa užívateľov a uživateľské rozhranie,logika aplikácie
+	</dd>
+	<dd>Vojtěch Meca <!-- Nahraďte skutečným jménem a e-mailem autora a popisem činnosti -->
+	    <a href="mailto:xmecav00@stud.fit.vutbr.cz">xmecav00@stud.fit.vutbr.cz</a> - 
+		Databázový subsystém
+	</dd>
+	<dt>URL aplikácie</dt>
+	<dd><a href="http://www.stud.fit.vutbr.cz/~xmagam00/IIS">http://www.stud.fit.vutbr.cz/~xmagam00/IIS</a></dd>
+	
+</dl>
+
+<h2>Uživatelé systému pro testování</h2>
+
+<table>
+<tr><th>Login</th><th>Heslo</th><th>Role</th></tr>
+<tr><td>admin</td><td>admin</td><td>Administrátor</td></tr>
+<tr><td>kucharka</td><td>kucharka</td><td>kucharka</td></tr>
+<tr><td>jana</td><td>jana</td><td>sestra</td></tr>
+</table>
+
+<h2>Implementace</h2>
+<p>Pri implementácií bol použítý php framework Nette. Podľa toho sa členia skripty na prístup k databáze a "presentery", ktoré vytvárajú logiku a následne zobrazujú výsledky do šablón. Šablóny chápate v poňatí Nette ako súbory s príponou .latte, pričom jednotlivé šablóny prísluchájú istej roly podľa tabulky vyššie a prostredníctvom nich sa vykresluje obsah databáze, a zobrazujú formuláre na pridávanie a editáciu databáze. Následné sú dáta predané "presenteru" podľa role prihláseného užívateľa.</p>
+<p>Pri implementácií boli nutné zmeny v návrhy z IDS: Potreba pridať tabuľky s užívateľmi a rolami, ktoré nám umožňujú prácu s užívateľmi. Rovnako pre užívateľov bola pridaná tabuľka aktivita, ktorá indikuje aktívneho a neaktívneho užívateľa. Pre potreby diétnej kuchyne bol pridaná tabulka suroviny, ktorá indikuje stav surovín v kuchyni a podľa toho objednávku. Následna bola pridaná možnosť doplnenia surín do skladu  a prijatie alebo zmena jedla pre objednávky podľa stavu surovín v sklade pre rolu kucharku a rola admin má možnosť spravovať každú časť systému. </p>
+<p>Prihlasovanie : je realizované pomocou skriptu SignPresenter.php , Autenticator.php. SignPresenter.php sa stará o vykreslenie prihlasovacie formuláru, vytvorenie session pre užívateľa a zavolanie funkcií, ktoré overia zadané údaje a podľa výsledku a role užívateľa rozhodne, ktorú časť stránok sprístupní(buď admin,kucharka, alebo sestra). Authenticator.php sa stará o vyhľadanie hesla v databázi užívateľaov, pričom pre vyhľadanie užívateľa využíva skript UserRepository.php, ktorá obsahuje funkciu na vyhľadané užívateľa s daným meno a vrátenie role užívateľa a hesla. Následne sa skontroluje zadané heslo s heslom databáze. Podľa výsledku buď vyhodí chybu alebo umožní užívate prihlásenie.</p>
+<p>admin rola: Využíva skript AdminPresenter.php. Tento skript zabezpečuje vykresľovanie formulárov prostredníctvom metód pre editáciu užívateľov, deaktívaciu/aktiváciu, zobrazenie pacientov, skladu surovín, objednávok, možnosť vykonať objednávku, editovat objednávku. Pre každý formulár existuje metóda, ktorá podľa potreby vyťahuje dáta z databáze pričom využíva skripty UserRepository.php, aby získalo dáta z tabuľky user, ObjednavkaRepository.php , aby získalo dáta pre objednávku a SurovinyRepository.php aby získalo informácie o stave skladu a objednanom tovare. Výsledky sú metód sú predávane do šablón.
+</p>
+
+<p>kucharka rola: Využíva skript KucharkaPresenter.php. Tento skript zabezpečuje vykresľovanie formulárov prostredníctvom metód pre editovanie objednávok, potvrdenie objednávok, zmenu jedla v objednávke, pridávanie jedla do skladu. Pre vytiahňutie dát z databáze, resp ich ukladanie do databáze alebo zmena hodnôt využíva skripty ObjednavkaRepository.php,SurovinyRepository.php. Náslende sú dáta predané KucharkaPresenter.php, ktorý buď vykreslí výsledok  do príslušnej šablóny alebo zavolá SurovinyRepository.php, ObjednavkaRepository.php, ktorá obsahuje funkcie pre vloženie, zmazenie alebo update obsahu tabuliek.
+</p>
+<p>sestra rola: Využíva skript SestraPresenter.php. Tento skript zabezpečuje prostredníctvom metóda vykresľovanie formulárov pre vytváranie objednávok, editáciu objednávok. Následne využíva skripty PacientRepository.php, ObjednavkaRepository.php, ktoré obsahujú metódy na editovanie, pridávanie mazanie obsahu tabuliek. Výsledné dáta sú zobrazované do šablón.</p>
+
+Stručná dokumentace k implementaci, která popisuje, které PHP skripty implementují jednotlivé případy použití uvedené v use-case diagramu z IDS. V případě, že bylo nutno při implementaci učinit změny v návrhu, musí být v dokumentaci zdůvodněny.</p>
+
+<h2>Instalace</h2>
+<ul>
+<li>Stručně popište postup instalace na server</li>
+<li>Softwarové požadavky (verze PHP apod.)</li>
+<li>Aplikácia požaduje pre svoj beh aplikačný server,napr apache vo verzii 2.4.X alebo vyššiu verziu. Nainštalované php vo verzii 5, kvôli podpore všetkých vlastností aplikácie. Aplikácia ďalej potrebuje databázový server MySQL vo verzii 5.5 alebo vyššej. Pre správny beh je potrebné prideliť prístup pre súbory php na zapisovanie,čítanie, vykonávanie(na unixe príkazom chmod 0777 nazov_suboru)a pre priečinky oprávnenie na čítanie a zápis(na unixe:chmod 0664 nazov_priečinku). Pre správny chod databáze je potrebné mať vytvoreného užívateľa root bez hesla. Následne je potrebné vytvoriť databázu s názvom "kuchyna" a vytvoriť v nej tabuľky pomocou skriptu createtable.sql. A následne ju treba naplniť pomocou skriptu insert.sql. Následne by mala aplikácie fungovať.</li>
+</ul>
+
+<h2>Známé problémy</h2>
+<p>Zde popište, které body zadání (IDS a IIS) nejsou implementovány a z jakého důvodu. Např. &bdquo;Z časových důvodů nebyla implementována správa uživatelů.&rdquo; Pomůžete tím zrychlit opravování, když neimplementované funkce nebudeme muset dlouze hledat.</p>
+
+</body>
+</html>

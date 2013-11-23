@@ -7,10 +7,10 @@ use Nette\Security as NS;
 class UserPresenter extends BasePresenter
 {
     /** @var Todo\UserRepository */
-    private $userRepository;
+    public $userRepository;
 
     /** @var Todo\Authenticator */
-    private $authenticator;
+    protected $authenticator;
 
     protected function startup()
     {
@@ -47,7 +47,7 @@ class UserPresenter extends BasePresenter
             $this->userRepository->setPassword($user->getId(), $values->newPassword);
             $this->flashMessage('Heslo bylo změněno.', 'success');
             $this->redirect('Homepage:');
-        } catch (NS\AuthenticationException $e) {
+        } catch (Nette\Security\AuthenticationException $e) {
             $form->addError('Zadané heslo není správné.');
         }
     }

@@ -16,6 +16,7 @@ class AdministratorPresenter extends BasePresenter
 	protected $surovinyRepository;
 	protected $userRepository;
 	protected $rolesRepository;
+	protected $authenticator;
 	
 	
 	protected function startup()
@@ -28,6 +29,7 @@ class AdministratorPresenter extends BasePresenter
 		$this->userRepository = $this->context->userRepository;
 		$this->surovinyRepository = $this->context->surovinyRepository;
 		$this->rolesRepository = $this->context->rolesRepository;
+		$this->authenticator = $this->context->authenticator;
 		
 	}
 	
@@ -194,7 +196,7 @@ class AdministratorPresenter extends BasePresenter
 	public function taskFormSubmitted3(Form $form)
 	{
 		
-   	$this->userRepository->createUser($form->values->user, $form->values->username,$form->values->newPassword,$form->values->id_role);
+   	$this->userRepository->createUser($form->values->user, $form->values->username,$this->authenticator->calculateHash($form->values->newPassword),$form->values->id_role);
    
     $this->redirect('this');
 	}

@@ -6,7 +6,10 @@ use Nette;
  * Tabulka user
  */
 class UserRepository extends Repository
-{
+{	
+
+	
+	
 	public function findByName($username)
 {
     return $this->findAll()->where('username', $username)->fetch();
@@ -29,7 +32,7 @@ class UserRepository extends Repository
                         'username' => $username,
                         //'rc_pacienta' => $rodne_cislo,
                         'name' => $user,
-						'password' => Authenticator::calculateHash($password),
+						'password' => ($password),
                         'id_role' => $role,
                 ));
         }	
@@ -40,12 +43,12 @@ class UserRepository extends Repository
                         
                         
                         'name' => $meno,
-						'password' => Authenticator::calculateHash($password),
+						'password' => ($password),
                         'id_role' => $id_role,
                 ));
         }			
 		
-		
+
 		
 }
 

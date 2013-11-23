@@ -20,11 +20,13 @@ common:
 			user: 'root'
 			password:
 		session:
-			expiration: +20 days 
+			autoStart: smart
+			expiration: +30 days
+         
 
 
 	services:
-		authenticator: Todo\Authenticator
+		authenticator: Authenticator
 		routerFactory: RouterFactory
 		router: @routerFactory::createRouter
 		
