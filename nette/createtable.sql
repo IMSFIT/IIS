@@ -1,72 +1,75 @@
-create table jidelnicek(
-						id_jidelnicku decimal(7,0) NOT NULL AUTO_INCREMENT,
+
+
+
+create table IF NOT EXISTS jidelnicek(
+						id_jidelnicku int(15) NOT NULL AUTO_INCREMENT,
 						primary key(id_jidelnicku),
 						datum_vystaveni varchar(20) NOT NULL,
 						platnost varchar(20) NOT NULL
 					);
 
-					create table jidlo_jidelnicku(
-						id_jidelnicku decimal(7,0) NOT NULL AUTO_INCREMENT,
-						id_jidla decimal(7,0) NOT NULL
+					create table IF NOT EXISTS  jidlo_jidelnicku(
+						id_jidelnicku int(15) NOT NULL AUTO_INCREMENT,
+						id_jidla int(15) NOT NULL
 					);
 
-					create table jidlo(
-						id_jidla decimal(7,0) NOT NULL AUTO_INCREMENT,
+					create table IF NOT EXISTS jidlo(
+						id_jidla int(15) NOT NULL AUTO_INCREMENT,
 						primary key(id_jidla),
 						nazev_jidla varchar(20) NOT NULL
 					);
 
 
 
-					create table typ_diety(
-						id_diety decimal(7,0) NOT NULL AUTO_INCREMENT,
+					create table IF NOT EXISTS typ_diety(
+						id_diety int(15) NOT NULL AUTO_INCREMENT,
 						primary key (id_diety),
 						nazev_diety varchar(20) NOT NULL
 					);
 
-					create table diety_jidel(
-						id_jidla decimal(7,0) NOT NULL AUTO_INCREMENT,
-						id_diety decimal(7,0) NOT NULL,
+					create table IF NOT EXISTS diety_jidel(
+						id_jidla int(15) NOT NULL AUTO_INCREMENT,
+						id_diety int(15) NOT NULL,
 						foreign key (id_diety) references  typ_diety(id_diety)
 					);
 
-					create table pacient(
-						rodne_cislo decimal(12,0) NOT NULL AUTO_INCREMENT,
+					create table IF NOT EXISTS pacient(
+						rodne_cislo int(15) NOT NULL AUTO_INCREMENT,
 						primary key (rodne_cislo),
 						jmeno varchar(20) NOT NULL,
 						prijmeni varchar(20) NOT NULL,
 						jmeno_osetrujiciho_lekare varchar(20) NOT NULL,
 						datum_prijeti varchar(20) NOT NULL,
-						druh_diety decimal(7,0) NOT NULL,
+						druh_diety int(15) NOT NULL,
 						zmena_diety varchar(20) NOT NULL,
 						cislo_pokoje int(11) NOT NULL,
-						jidelnicek decimal(7,0) NOT NULL,
+						jidelnicek int(15) NOT NULL,
 						foreign key (druh_diety) references  typ_diety(id_diety)
 					);
 
-					create table objednavka_na_kuchyn(
-						id_objednavky decimal(7,0) NOT NULL AUTO_INCREMENT,
+					create table IF NOT EXISTS objednavka_na_kuchyn(
+						id_objednavky int(15) NOT NULL AUTO_INCREMENT,
 						primary key (id_objednavky),
 						oddeleni varchar(30) NOT NULL,
-						preferovane_jidlo decimal(7,0) NOT NULL,
+						preferovane_jidlo int(15) NOT NULL,
 						stav int(11) NOT NULL,
-						rc_pacienta decimal(12,0) NOT NULL
+						rc_pacienta int(15) NOT NULL
 					);
 
-					create table pokoj(
+					create table IF NOT EXISTS pokoj(
 						cislo_pokoje int(11) NOT NULL AUTO_INCREMENT,
 						primary key (cislo_pokoje),
 						patro int NOT NULL,
 						pavilon varchar(20)
 					);
 
-					create table jidla_a_suroviny(
-						id_jidla decimal(7,0) NOT NULL AUTO_INCREMENT,
-						id_surovin decimal(7,0) NOT NULL
+					create table IF NOT EXISTS jidla_a_suroviny(
+						id_jidla int(15) NOT NULL AUTO_INCREMENT,
+						id_surovin int(15) NOT NULL
 					);
 
-					create table suroviny(
-						id_suroviny decimal(7,0) NOT NULL AUTO_INCREMENT,
+					create table IF NOT EXISTS suroviny(
+						id_suroviny int(15) NOT NULL AUTO_INCREMENT,
 						primary key (id_suroviny),
 						nazev_suroviny varchar(20) NOT NULL,
 						mnozstvi_surovin int NOT NULL,
@@ -76,7 +79,7 @@ create table jidelnicek(
 
 					;
 
-CREATE TABLE `user` (
+CREATE TABLE IF NOT EXISTS `user` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `username` varchar(50) NOT NULL,
   `password` char(60) NOT NULL,
@@ -87,7 +90,7 @@ CREATE TABLE `user` (
 
 
 
-CREATE TABLE  `roles` (
+CREATE TABLE  IF NOT EXISTS `roles` (
   
 `id_role` int(10) NOT NULL AUTO_INCREMENT,
   
@@ -99,7 +102,7 @@ PRIMARY KEY (`id_role`)
 
 
 
-CREATE TABLE  `aktivita` (
+CREATE TABLE  IF NOT EXISTS `aktivita` (
   
 `id_aktivita` int(10) NOT NULL AUTO_INCREMENT,
  
