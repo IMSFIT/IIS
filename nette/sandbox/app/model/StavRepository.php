@@ -9,7 +9,7 @@ class StavRepository extends Repository
 {
 	public function findIncomplete()
 	{
-    	return $this->findBy(array('done' => false))->order('created ASC');
+    	return $this->findBy(array('id_stav' => 2 ));
 	}
 }
 

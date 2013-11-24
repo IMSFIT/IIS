@@ -1,16 +1,16 @@
-<?php //netteCache[01]000456a:2:{s:4:"time";s:21:"0.02326200 1385220671";s:9:"callbacks";a:2:{i:0;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:133:"C:\Program Files (x86)\EasyPHP-DevServer-13.1VC11\data\localweb\projects\IIS2\nette\sandbox\app\templates\Administrator\pacient.latte";i:2;i:1385220583;}i:1;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:10:"checkConst";}i:1;s:25:"Nette\Framework::REVISION";i:2;s:30:"80a7e46 released on 2013-08-08";}}}?><?php
+<?php //netteCache[01]000456a:2:{s:4:"time";s:21:"0.48611700 1385249973";s:9:"callbacks";a:2:{i:0;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:133:"C:\Program Files (x86)\EasyPHP-DevServer-13.1VC11\data\localweb\projects\IIS2\nette\sandbox\app\templates\Administrator\pacient.latte";i:2;i:1385249931;}i:1;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:10:"checkConst";}i:1;s:25:"Nette\Framework::REVISION";i:2;s:30:"80a7e46 released on 2013-08-08";}}}?><?php
 
 // source file: C:\Program Files (x86)\EasyPHP-DevServer-13.1VC11\data\localweb\projects\IIS2\nette\sandbox\app\templates\Administrator\pacient.latte
 
 ?><?php
 // prolog Nette\Latte\Macros\CoreMacros
-list($_l, $_g) = Nette\Latte\Macros\CoreMacros::initRuntime($template, '20zrzscyng')
+list($_l, $_g) = Nette\Latte\Macros\CoreMacros::initRuntime($template, 'q88wkdq2q5')
 ;
 // prolog Nette\Latte\Macros\UIMacros
 //
 // block content
 //
-if (!function_exists($_l->blocks['content'][] = '_lb661f48b14a_content')) { function _lb661f48b14a_content($_l, $_args) { extract($_args)
+if (!function_exists($_l->blocks['content'][] = '_lbb57302251d_content')) { function _lbb57302251d_content($_l, $_args) { extract($_args)
 ?><div class="menu">
 <ul>
 <li><a href="<?php echo htmlSpecialChars($_control->link("Administrator:objednavka")) ?>
@@ -102,7 +102,8 @@ if (!function_exists($_l->blocks['content'][] = '_lb661f48b14a_content')) { func
 						<td><?php echo Nette\Templating\Helpers::escapeHtml($pacient->diety->nazev_diety, ENT_NOQUOTES) ?></td>
 						<td><?php echo Nette\Templating\Helpers::escapeHtml($pacient->zmena_diety, ENT_NOQUOTES) ?></td>
 						<td><?php echo Nette\Templating\Helpers::escapeHtml($pacient->cislo_pokoje, ENT_NOQUOTES) ?></td>
-						
+						<td><?php echo Nette\Templating\Helpers::escapeHtml($pacient->jidelnicku->datum_vystaveni, ENT_NOQUOTES) ?></td>
+						<td><?php echo Nette\Templating\Helpers::escapeHtml($pacient->jidelnicku->platnost, ENT_NOQUOTES) ?></td>
 						
 				</tr>
 <?php $iterations++; endforeach ?>

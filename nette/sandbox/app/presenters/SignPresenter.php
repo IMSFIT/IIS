@@ -34,15 +34,25 @@ class SignPresenter extends BasePresenter
        	 $values = $form->getValues();
        	 
          $user->setExpiration('+30 seconds', FALSE);
-       		 
+       	 
         $user->login($values->username, $values->password);
-        
-		echo $user->role->nazov;
+        if ($user->isInRole('admin') )
+		{
+		 $this->redirect('Administrator:');
+		}
+		if ($user->isInRole('sestra') )
+		{
+		 $this->redirect('Sestra:');
+		}
+		if ($user->isInRole('kucharka') )
+		{
+		 $this->redirect('Kucharka:');
+		}
         //$this->redirect('Administrator:');
    		 } 
-		 catch (NS\AuthenticationException $e) 
+		 catch (Nette\Security\AuthenticationException $e) 
 		 {
-        $form->addError('Neplatné uívateľské meno alebo heslo.');
+        $form->addError('Neplatné uívateľské meno alebo heslo alebo neaktívny účet.');
     		}
         }
 

@@ -24,6 +24,15 @@ class KucharkaPresenter extends BasePresenter
 			if (!$this->getUser()->isLoggedIn()) {
         $this->redirect('Sign:in');
     }
+	
+	if ($this->getUser()->isInrole('admin'))
+		{
+		$this->redirect('Administrator:');	
+		}
+		if ($this->getUser()->isInrole('sestra'))
+		{
+		$this->redirect('Sestra:');	
+		}
     	$this->objednavkaRepository = $this->context->objednavkaRepository;
 		$this->pacientRepository = $this->context->pacientRepository;
 		$this->jidlaRepository = $this->context->jidlaRepository;
@@ -226,7 +235,7 @@ class KucharkaPresenter extends BasePresenter
 	{
 	
 	$userPairs2 = $this->stavRepository->findAll()->fetchPairs('id_stav', 'nazov');
-	$userPairs = $this->objednavkaRepository->findAll()->fetchPairs('id_objednavky', 'id_objednavky');
+	$userPairs = $this->objednavkaRepository->findAccepted()->fetchPairs('id_objednavky', 'id_objednavky');
 	$userPairs3 = $this->surovinyRepository->findAll()->fetchPairs('id_suroviny', 'nazev_suroviny');
 	
     $form = new Form();

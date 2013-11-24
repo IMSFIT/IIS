@@ -26,6 +26,16 @@ class AdministratorPresenter extends BasePresenter
 			if (!$this->getUser()->isLoggedIn()) {
         $this->redirect('Sign:in');
     }
+	
+	
+	if ($this->getUser()->isInrole('sestra'))
+		{
+		$this->redirect('Sestra:');	
+		}
+		if ($this->getUser()->isInrole('kucharka'))
+		{
+		$this->redirect('Kucharka:');	
+		}
     	$this->objednavkaRepository = $this->context->objednavkaRepository;
 		$this->pacientRepository = $this->context->pacientRepository;
 		$this->jidlaRepository = $this->context->jidlaRepository;

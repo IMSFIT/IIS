@@ -14,6 +14,8 @@ class UserRepository extends Repository
 {
     return $this->findAll()->where('username', $username)->fetch();
 }
+
+
 	
 	public function setPassword($id, $password)
 {

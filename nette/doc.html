@@ -43,7 +43,7 @@
 <h2>Implementace</h2>
 <p>Pri implementácií bol použítý php framework Nette. Podľa toho sa členia skripty na prístup k databáze a "presentery", ktoré vytvárajú logiku a následne zobrazujú výsledky do šablón. Šablóny chápate v poňatí Nette ako súbory s príponou .latte, pričom jednotlivé šablóny prísluchájú istej roly podľa tabulky vyššie a prostredníctvom nich sa vykresluje obsah databáze, a zobrazujú formuláre na pridávanie a editáciu databáze. Následné sú dáta predané "presenteru" podľa role prihláseného užívateľa.</p>
 <p>Pri implementácií boli nutné zmeny v návrhy z IDS: Potreba pridať tabuľky s užívateľmi a rolami, ktoré nám umožňujú prácu s užívateľmi. Rovnako pre užívateľov bola pridaná tabuľka aktivita, ktorá indikuje aktívneho a neaktívneho užívateľa. Pre potreby diétnej kuchyne bol pridaná tabulka suroviny, ktorá indikuje stav surovín v kuchyni a podľa toho objednávku. Následna bola pridaná možnosť doplnenia surín do skladu  a prijatie alebo zmena jedla pre objednávky podľa stavu surovín v sklade pre rolu kucharku a rola admin má možnosť spravovať každú časť systému. </p>
-<p>Prihlasovanie : je realizované pomocou skriptu SignPresenter.php , Autenticator.php. SignPresenter.php sa stará o vykreslenie prihlasovacie formuláru, vytvorenie session pre užívateľa a zavolanie funkcií, ktoré overia zadané údaje a podľa výsledku a role užívateľa rozhodne, ktorú časť stránok sprístupní(buď admin,kucharka, alebo sestra). Authenticator.php sa stará o vyhľadanie hesla v databázi užívateľaov, pričom pre vyhľadanie užívateľa využíva skript UserRepository.php, ktorá obsahuje funkciu na vyhľadané užívateľa s daným meno a vrátenie role užívateľa a hesla. Následne sa skontroluje zadané heslo s heslom databáze. Podľa výsledku buď vyhodí chybu alebo umožní užívate prihlásenie.</p>
+<p>Prihlasovanie : je realizované pomocou skriptu SignPresenter.php , Autenticator.php. SignPresenter.php sa stará o vykreslenie prihlasovacie formuláru, vytvorenie session pre užívateľa a zavolanie funkcií, ktoré overia zadané údaje a podľa výsledku a role užívateľa rozhodne, ktorú časť stránok sprístupní(buď admin,kucharka, alebo sestra). Authenticator.php sa stará o vyhľadanie hesla v databázi užívateľaov, pričom pre vyhľadanie užívateľa využíva skript UserRepository.php, ktorá obsahuje funkciu na vyhľadané užívateľa s daným meno a vrátenie role užívateľa a hesla. Následne sa skontroluje zadané heslo s heslom databáze. Podľa výsledku buď vyhodí chybu alebo umožní užívate prihlásenie. Pri prihlásení je užívateľ identifikovaný nejakou rolou a podľa toho sú mu umožnené prístup do rôznych častí systému. Užívateľ je automaticky odhlásený po 30 sekundách nečinnosti.</p>
 <p>admin rola: Využíva skript AdminPresenter.php. Tento skript zabezpečuje vykresľovanie formulárov prostredníctvom metód pre editáciu užívateľov, deaktívaciu/aktiváciu, zobrazenie pacientov, skladu surovín, objednávok, možnosť vykonať objednávku, editovat objednávku. Pre každý formulár existuje metóda, ktorá podľa potreby vyťahuje dáta z databáze pričom využíva skripty UserRepository.php, aby získalo dáta z tabuľky user, ObjednavkaRepository.php , aby získalo dáta pre objednávku a SurovinyRepository.php aby získalo informácie o stave skladu a objednanom tovare. Výsledky sú metód sú predávane do šablón.
 </p>
 
@@ -51,7 +51,7 @@
 </p>
 <p>sestra rola: Využíva skript SestraPresenter.php. Tento skript zabezpečuje prostredníctvom metóda vykresľovanie formulárov pre vytváranie objednávok, editáciu objednávok. Následne využíva skripty PacientRepository.php, ObjednavkaRepository.php, ktoré obsahujú metódy na editovanie, pridávanie mazanie obsahu tabuliek. Výsledné dáta sú zobrazované do šablón.</p>
 
-Stručná dokumentace k implementaci, která popisuje, které PHP skripty implementují jednotlivé případy použití uvedené v use-case diagramu z IDS. V případě, že bylo nutno při implementaci učinit změny v návrhu, musí být v dokumentaci zdůvodněny.</p>
+
 
 <h2>Instalace</h2>
 <ul>
@@ -61,7 +61,7 @@ Stručná dokumentace k implementaci, která popisuje, které PHP skripty implem
 </ul>
 
 <h2>Známé problémy</h2>
-<p>Zde popište, které body zadání (IDS a IIS) nejsou implementovány a z jakého důvodu. Např. &bdquo;Z časových důvodů nebyla implementována správa uživatelů.&rdquo; Pomůžete tím zrychlit opravování, když neimplementované funkce nebudeme muset dlouze hledat.</p>
+<p>Jednotlivé formuláre nie su dokonalé premyslené a pri vybratí nejakej objednávky,užívateľa,.. sa nenaplnia hodnoty formuláru ale je nutné ich ručne zvoliť.</p>
 
 </body>
 </html>
