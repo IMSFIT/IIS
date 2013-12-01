@@ -9,7 +9,7 @@ create table IF NOT EXISTS jidelnicek(
 					);
 
 					create table IF NOT EXISTS  jidlo_jidelnicku(
-						id_jidelnicku int(15) NOT NULL AUTO_INCREMENT,
+						id_jidelnicku int(15) NOT NULL ,
 						id_jidla int(15) NOT NULL
 					);
 
@@ -28,13 +28,13 @@ create table IF NOT EXISTS jidelnicek(
 					);
 
 					create table IF NOT EXISTS diety_jidel(
-						id_jidla int(15) NOT NULL AUTO_INCREMENT,
+						id_jidla int(15) NOT NULL  ,
 						id_diety int(15) NOT NULL,
 						foreign key (id_diety) references  typ_diety(id_diety)
 					);
 
 					create table IF NOT EXISTS pacient(
-						rodne_cislo int(15) NOT NULL AUTO_INCREMENT,
+						rodne_cislo bigint(20) NOT NULL ,
 						primary key (rodne_cislo),
 						jmeno varchar(20) NOT NULL,
 						prijmeni varchar(20) NOT NULL,
@@ -53,7 +53,7 @@ create table IF NOT EXISTS jidelnicek(
 						oddeleni varchar(30) NOT NULL,
 						preferovane_jidlo int(15) NOT NULL,
 						stav int(11) NOT NULL,
-						rc_pacienta int(15) NOT NULL
+						rc_pacienta bigint(20) NOT NULL
 					);
 
 					create table IF NOT EXISTS pokoj(
@@ -64,7 +64,7 @@ create table IF NOT EXISTS jidelnicek(
 					);
 
 					create table IF NOT EXISTS jidla_a_suroviny(
-						id_jidla int(15) NOT NULL AUTO_INCREMENT,
+						id_jidla int(15) NOT NULL ,
 						id_surovin int(15) NOT NULL
 					);
 
@@ -79,14 +79,15 @@ create table IF NOT EXISTS jidelnicek(
 
 					;
 
-CREATE TABLE IF NOT EXISTS `user` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `username` varchar(50) NOT NULL,
-  `password` char(60) NOT NULL,
-  `name` varchar(100) NOT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `username` (`username`)
-);
+CREATE TABLE IF NOT EXISTS user (
+  id int(10) unsigned NOT NULL AUTO_INCREMENT,
+  username varchar(50) NOT NULL,
+  password char(60) NOT NULL,
+  name varchar(100) NOT NULL,
+  id_role int(8) NOT NULL,
+  aktivita_uctu  int(8) NOT NULL,
+  PRIMARY KEY (id)
+ );
 
 
 
@@ -113,15 +114,15 @@ CREATE TABLE  IF NOT EXISTS `aktivita` (
 );
 
 
+					alter table objednavka_na_kuchyn add foreign key (rc_pacienta) references pacient(rodne_cislo);
 
 
 					ALTER TABLE user ADD FOREIGN KEY ( id_role ) REFERENCES roles( id_role );
-					alter table user add foreign key (id_aktivita) references aktivita(id_aktivita);
+					alter table user add foreign key (aktivita_uctu) references aktivita(id_aktivita);
 					alter table jidlo_jidelnicku add foreign key (id_jidelnicku) references jidelnicek(id_jidelnicku);
 
 					alter table jidlo_jidelnicku add foreign key (id_jidla) references jidlo(id_jidla);
 
-					alter table objednavka_na_kuchyn add foreign key (rc_pacienta) references pacient(rodne_cislo);
 
 					alter table pacient add foreign key (jidelnicek) references jidelnicek(id_jidelnicku);
 

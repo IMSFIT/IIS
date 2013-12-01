@@ -4,11 +4,11 @@ INSERT INTO jidlo(id_jidla,nazev_jidla) VALUES ('2222221','Vepøový øízek');
 
 							INSERT INTO jidlo(id_jidla,nazev_jidla) VALUES ('2222223','Špagety');
 
-							INSERT INTO  typ_deity(id_diety,nazev_diety) VALUES ('1111111',  'Bezlepková dieta');
+							INSERT INTO  typ_diety(id_diety,nazev_diety) VALUES ('1111111',  'Bezlepková dieta');
 
-							INSERT INTO  typ_deity(id_diety,nazev_diety) VALUES ('1111112',  'Bezmléèná dieta');
+							INSERT INTO  typ_diety(id_diety,nazev_diety) VALUES ('1111112',  'Bezmléèná dieta');
 
-							INSERT INTO  typ_deity(id_diety,nazev_diety) VALUES ('1111113',  'Bezvajeèná dieta');
+							INSERT INTO  typ_diety(id_diety,nazev_diety) VALUES ('1111113',  'Bezvajeèná dieta');
 
 							INSERT INTO  pokoj (cislo_pokoje,patro,pavilon) VALUES ('123',  '1',  'B');
 
@@ -48,7 +48,7 @@ INSERT INTO jidlo(id_jidla,nazev_jidla) VALUES ('2222221','Vepøový øízek');
 
 							INSERT INTO  jidlo_jidelnicku(id_jidelnicku,id_jidla) VALUES ('4444441',  '2222221');
 
-							INSERT INTO  jidlo_jidelnicku(id_jidelnicku,id_jidla) VALUES ('4444443',  '2222223');
+							INSERT INTO  jidlo_jidelnicku(id_jidelnicku,id_jidla) VALUES ('4444442',  '2222223');
 
 							INSERT INTO  jidla_a_suroviny(id_jidla,id_surovin) VALUES ('2222221',  '3333333');
 

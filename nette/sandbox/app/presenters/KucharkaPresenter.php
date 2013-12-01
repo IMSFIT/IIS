@@ -55,6 +55,7 @@ class KucharkaPresenter extends BasePresenter
 	{
     	
 		$this->template->objednavkys = $this->objednavkaRepository->findAll();
+		$this->template->pacients = $this->pacientRepository->findAll();
 
 	}
 	
@@ -127,6 +128,7 @@ class KucharkaPresenter extends BasePresenter
 	{
 		$this->template->objednavkys = $this->objednavkaRepository->findAll();
 		$this->template->surovinys = $this->surovinyRepository->findAll();
+		$this->template->pacients = $this->pacientRepository->findAll();
 	}
 	
 	//zobrazenie pre zmenené objednávky

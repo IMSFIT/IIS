@@ -60,6 +60,7 @@ class AdministratorPresenter extends BasePresenter
 	{
     	
 		$this->template->objednavkys = $this->objednavkaRepository->findAll();
+		$this->template->pacients = $this->pacientRepository->findAll();
 
 	}
 	
@@ -67,6 +68,7 @@ class AdministratorPresenter extends BasePresenter
 	public function renderDeleteEditDefault()
 	{
 		$this->template->objednavkys = $this->objednavkaRepository->findAll();
+		$this->template->pacients = $this->pacientRepository->findAll();
 	}
 	
 	
@@ -74,6 +76,7 @@ class AdministratorPresenter extends BasePresenter
 	public function renderAddDefault()
 	{
 		$this->template->objednavkys = $this->objednavkaRepository->findAll();
+		$this->template->pacients = $this->pacientRepository->findAll();
 	}
 	
 	public function renderUser()
@@ -107,6 +110,7 @@ class AdministratorPresenter extends BasePresenter
 	public function renderAccepted()
 	{
 		$this->template->objednavkys = $this->objednavkaRepository->findAccepted();
+				$this->template->pacients = $this->pacientRepository->findAll();
 	}
 	
 	public function renderUseradd()
@@ -118,6 +122,7 @@ class AdministratorPresenter extends BasePresenter
 	{
 		$this->template->objednavkys = $this->objednavkaRepository->findAccepted();
 		$this->template->surovinys = $this->surovinyRepository->findAll();
+		$this->template->pacients = $this->pacientRepository->findAll();
 	}
 	
 	
@@ -131,6 +136,7 @@ class AdministratorPresenter extends BasePresenter
 	public function renderChanged()
 	{
 		$this->template->objednavkys = $this->objednavkaRepository->findChanged();
+				$this->template->pacients = $this->pacientRepository->findAll();
 	}
 	
 	//zobrazenie pre zmenené objednávky
@@ -143,6 +149,7 @@ class AdministratorPresenter extends BasePresenter
 	public function renderEditdefault()
 	{
 		$this->template->objednavkys = $this->objednavkaRepository->findAll();
+		$this->template->pacients = $this->pacientRepository->findAll();
 		
 	}
 	
@@ -151,7 +158,15 @@ class AdministratorPresenter extends BasePresenter
 	{
 		$this->template->objednavkys = $this->objednavkaRepository->findAccepted();
 		$this->template->surovinys = $this->surovinyRepository->findAll();
+				$this->template->pacients = $this->pacientRepository->findAll();
 	}
+	
+	//zobrazenie pre zmenené objednávky
+	public function renderActivateuser()
+	{
+	$this->template->users = $this->userRepository->findAll();
+	}
+	
 	
 	
 	
@@ -387,6 +402,44 @@ class AdministratorPresenter extends BasePresenter
    
     $this->redirect('this');
 	}
+	
+	//vytvorenie formularu na zmazanie objednavok
+	protected function createComponentTaskForm333()
+	{
+	$userPairs = $this->userRepository->findAll()->fetchPairs('id', 'username');
+	
+	$userPairs3 = $this->aktivitaRepository->findAll()->fetchPairs('id_aktivita', 'nazov');
+	
+    $form = new Form();
+	 
+    $form->addSelect('id', 'username:', $userPairs)
+         ->setPrompt('- Vyberte -')
+         ->addRule(Form::FILLED, 'Je nutné vybrať užívateľa na editovanie.');
+	
+	
+	$form->addSelect('id_aktivita', 'nazov:', $userPairs3)
+         ->setPrompt('- Vyberte -')
+         ->addRule(Form::FILLED, 'Je nutné zadať aktivitu užívateľa.');
+	
+	
+
+    $form->addSubmit('create', 'Editovať');
+	
+	$form->onSuccess[] = $this->taskFormSubmitted333;
+    return $form;
+	}
+	
+	//overenie formularu
+	public function taskFormSubmitted333(Form $form)
+	{
+		
+		
+   	$this->userRepository->editUserActivity($form->values->id,$form->values->id_aktivita);
+   
+    $this->redirect('this');
+	}
+	
+	
 	
 	
 	//vytvorenie formularu na pridanie novych objednavok

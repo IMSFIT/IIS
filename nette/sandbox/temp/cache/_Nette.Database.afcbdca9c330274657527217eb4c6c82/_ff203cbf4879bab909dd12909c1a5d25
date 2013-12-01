@@ -1,1 +1,1 @@
-<?php //netteCache[01]000070a:2:{s:4:"time";s:21:"0.22468900 1385250263";s:10:"serialized";b:1;}?>a:1:{s:11:"rodne_cislo";b:0;}
+<?php //netteCache[01]000070a:2:{s:4:"time";s:21:"0.46841500 1385898824";s:10:"serialized";b:1;}?>a:11:{s:11:"rodne_cislo";b:1;s:5:"jmeno";b:1;s:8:"prijmeni";b:1;s:25:"jmeno_osetrujiciho_lekare";b:1;s:13:"datum_prijeti";b:1;s:5:"diety";b:0;s:10:"druh_diety";b:1;s:11:"zmena_diety";b:1;s:12:"cislo_pokoje";b:1;s:10:"jidelnicku";b:0;s:13:"id_jidelnicku";b:1;}

@@ -1,16 +1,16 @@
-<?php //netteCache[01]000457a:2:{s:4:"time";s:21:"0.18941200 1385223803";s:9:"callbacks";a:2:{i:0;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:134:"C:\Program Files (x86)\EasyPHP-DevServer-13.1VC11\data\localweb\projects\IIS2\nette\sandbox\app\templates\Administrator\edituser.latte";i:2;i:1385223782;}i:1;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:10:"checkConst";}i:1;s:25:"Nette\Framework::REVISION";i:2;s:30:"80a7e46 released on 2013-08-08";}}}?><?php
+<?php //netteCache[01]000457a:2:{s:4:"time";s:21:"0.19746100 1385899437";s:9:"callbacks";a:2:{i:0;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:134:"C:\Program Files (x86)\EasyPHP-DevServer-13.1VC11\data\localweb\projects\IIS2\nette\sandbox\app\templates\Administrator\edituser.latte";i:2;i:1385571464;}i:1;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:10:"checkConst";}i:1;s:25:"Nette\Framework::REVISION";i:2;s:30:"80a7e46 released on 2013-08-08";}}}?><?php
 
 // source file: C:\Program Files (x86)\EasyPHP-DevServer-13.1VC11\data\localweb\projects\IIS2\nette\sandbox\app\templates\Administrator\edituser.latte
 
 ?><?php
 // prolog Nette\Latte\Macros\CoreMacros
-list($_l, $_g) = Nette\Latte\Macros\CoreMacros::initRuntime($template, 'ih76l0dh21')
+list($_l, $_g) = Nette\Latte\Macros\CoreMacros::initRuntime($template, 'ez1ulwl7l0')
 ;
 // prolog Nette\Latte\Macros\UIMacros
 //
 // block content
 //
-if (!function_exists($_l->blocks['content'][] = '_lb28502bafdd_content')) { function _lb28502bafdd_content($_l, $_args) { extract($_args)
+if (!function_exists($_l->blocks['content'][] = '_lb98f91da8de_content')) { function _lb98f91da8de_content($_l, $_args) { extract($_args)
 ?><div class="menu">
 <ul>
 <li><a href="<?php echo htmlSpecialChars($_control->link("Administrator:objednavka")) ?>
@@ -43,6 +43,8 @@ if (!function_exists($_l->blocks['content'][] = '_lb28502bafdd_content')) { func
 ">Mazanie užívateľov</a></li>
 <li><a href="<?php echo htmlSpecialChars($_control->link("Administrator:edituser")) ?>
 ">Editovanie užívateľov</a></li>
+<li><a href="<?php echo htmlSpecialChars($_control->link("Administrator:activateuser")) ?>
+">Aktivovanie/deaktivovanie užívateľov</a></li>
 </ul>
 
 </div>
@@ -60,16 +62,6 @@ if (!function_exists($_l->blocks['content'][] = '_lb28502bafdd_content')) { func
 
 </ul>
 
-</div>
-
-
-
-
-
-
-
-
-</ul>
 </div>
 
 <div class="center">
@@ -142,6 +134,7 @@ if ($_l->extends) {
 // main template
 //
 ?>
+
 
 
 

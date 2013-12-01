@@ -43,6 +43,7 @@ class SestraPresenter extends BasePresenter
 	public function renderDefault()
 	{
     	$this->template->objednavkys = $this->objednavkaRepository->findAll();
+		$this->template->pacients = $this->pacientRepository->findAll();
 		
 
 	}
@@ -50,6 +51,7 @@ class SestraPresenter extends BasePresenter
 	public function renderDeleteEditDefault()
 	{
 		$this->template->objednavkys = $this->objednavkaRepository->findAll();
+		$this->template->pacients = $this->pacientRepository->findAll();
 	}
 	
 	
@@ -57,24 +59,28 @@ class SestraPresenter extends BasePresenter
 	public function renderAddDefault()
 	{
 		$this->template->objednavkys = $this->objednavkaRepository->findAll();
+		$this->template->pacients = $this->pacientRepository->findAll();
 	}
 	
 	
 	public function renderPacient()
 	{
 		$this->template->pacients = $this->pacientRepository->findAll();
+		
 	}
 	
 	
 	public function renderEditdefault()
 	{
 		$this->template->objednavkys = $this->objednavkaRepository->findAll();
+		$this->template->pacients = $this->pacientRepository->findAll();
 	}
 	
 	//zobrazenie pre prijaté objednávky
 	public function renderAccepted()
 	{
 		$this->template->objednavkys = $this->objednavkaRepository->findAccepted();
+		$this->template->pacients = $this->pacientRepository->findAll();
 	}
 	
 	
@@ -82,12 +88,14 @@ class SestraPresenter extends BasePresenter
 	public function renderConfirmed()
 	{
 		$this->template->objednavkys = $this->objednavkaRepository->findConfirmed();
+		$this->template->pacients = $this->pacientRepository->findAll();
 	}
 	
 	//zobrazenie pre zmenené objednávky
 	public function renderChanged()
 	{
 		$this->template->objednavkys = $this->objednavkaRepository->findChanged();
+		$this->template->pacients = $this->pacientRepository->findAll();
 	}
 	
 	//vytvorenie formularu na pridanie novych objednavok

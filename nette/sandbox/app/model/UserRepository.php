@@ -50,6 +50,15 @@ class UserRepository extends Repository
                         'id_role' => $id_role,
 						'aktivita_uctu' => $aktivita,
                 ));
+        }		
+		
+			public function editUserActivity($id,$aktivita)
+      {
+                return $this->findBy(array('id' => $id ))->update(array(
+                        
+                        
+                      						'aktivita_uctu' => $aktivita,
+                ));
         }			
 		
 

@@ -1,16 +1,16 @@
-<?php //netteCache[01]000463a:2:{s:4:"time";s:21:"0.23140600 1385899436";s:9:"callbacks";a:2:{i:0;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:140:"C:\Program Files (x86)\EasyPHP-DevServer-13.1VC11\data\localweb\projects\IIS2\nette\sandbox\app\templates\Administrator\deleteedituser.latte";i:2;i:1385571487;}i:1;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:10:"checkConst";}i:1;s:25:"Nette\Framework::REVISION";i:2;s:30:"80a7e46 released on 2013-08-08";}}}?><?php
+<?php //netteCache[01]000461a:2:{s:4:"time";s:21:"0.05836800 1385571710";s:9:"callbacks";a:2:{i:0;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:138:"C:\Program Files (x86)\EasyPHP-DevServer-13.1VC11\data\localweb\projects\IIS2\nette\sandbox\app\templates\Administrator\activateuser.latte";i:2;i:1385571618;}i:1;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:10:"checkConst";}i:1;s:25:"Nette\Framework::REVISION";i:2;s:30:"80a7e46 released on 2013-08-08";}}}?><?php
 
-// source file: C:\Program Files (x86)\EasyPHP-DevServer-13.1VC11\data\localweb\projects\IIS2\nette\sandbox\app\templates\Administrator\deleteedituser.latte
+// source file: C:\Program Files (x86)\EasyPHP-DevServer-13.1VC11\data\localweb\projects\IIS2\nette\sandbox\app\templates\Administrator\activateuser.latte
 
 ?><?php
 // prolog Nette\Latte\Macros\CoreMacros
-list($_l, $_g) = Nette\Latte\Macros\CoreMacros::initRuntime($template, 'j1m57vii8s')
+list($_l, $_g) = Nette\Latte\Macros\CoreMacros::initRuntime($template, '7bdn0604kq')
 ;
 // prolog Nette\Latte\Macros\UIMacros
 //
 // block content
 //
-if (!function_exists($_l->blocks['content'][] = '_lb978dc1dcdc_content')) { function _lb978dc1dcdc_content($_l, $_args) { extract($_args)
+if (!function_exists($_l->blocks['content'][] = '_lb8b056fb55a_content')) { function _lb8b056fb55a_content($_l, $_args) { extract($_args)
 ?><div class="menu">
 <ul>
 <li><a href="<?php echo htmlSpecialChars($_control->link("Administrator:objednavka")) ?>
@@ -64,22 +64,25 @@ if (!function_exists($_l->blocks['content'][] = '_lb978dc1dcdc_content')) { func
 
 </div>
 
+
+
+
+
+
+
+
+</ul>
+</div>
+
+
 <div class="center">
-
-<h1>Zobrazenie objednávok a ich mazanie a editácia</h1>
-
+<h1>Pridávanie nových používateľov</h1>
 <fieldset>
-    <legend>Zmazanie užívateľa</legend>
+    <legend>Pridať užívateľa</legend>
 
-<?php $_ctrl = $_control->getComponent("taskForm4"); if ($_ctrl instanceof Nette\Application\UI\IRenderable) $_ctrl->validateControl(); $_ctrl->render() ?>
-</fieldset>
+<?php $_ctrl = $_control->getComponent("taskForm333"); if ($_ctrl instanceof Nette\Application\UI\IRenderable) $_ctrl->validateControl(); $_ctrl->render() ?>
 
-
-
-
-
-
-
+<div style="border:1px solid black;">
 <table>
     <thead>
     <tr>
@@ -108,8 +111,8 @@ if (!function_exists($_l->blocks['content'][] = '_lb978dc1dcdc_content')) { func
     </tbody>
 </table>
 </div>
-
-
+</div>
+</fieldset>
 
 <?php
 }}
@@ -134,6 +137,9 @@ if ($_l->extends) {
 // main template
 //
 ?>
+
+
+
 
 
 

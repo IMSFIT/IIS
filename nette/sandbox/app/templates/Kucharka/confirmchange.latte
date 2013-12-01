@@ -97,7 +97,42 @@
    
     </tbody>
 </table>
+<br>
+<br>
 
+<table>
+    <thead>
+    <tr>
+        <th>rodné číslo</th>
+        <th>Jméno</th>
+        <th>Priezvisko</th>
+		<th>Meno ošetrujúceho lekára</th>
+		<th>Dátum prijatia</th>
+		
+		<th>Názov diety</th>
+		<th>Zmena diety</th>
+		<th>Číslo izby</th>
+	
+    </tr>
+    </thead>
+    <tbody>
+    {foreach $pacients as $pacient}
+                <tr>
+                        <td>{$pacient->rodne_cislo}</td>
+                        <td>{$pacient->jmeno}</td>
+                        <td>{$pacient->prijmeni}</td>
+						<td>{$pacient->jmeno_osetrujiciho_lekare}</td>
+                	    <td>{$pacient->datum_prijeti}</td>
+						<td>{$pacient->diety->nazev_diety}</td>
+						<td>{$pacient->zmena_diety}</td>
+						<td>{$pacient->cislo_pokoje}</td>
+						
+						
+				</tr>
+     {/foreach}
+   
+    </tbody>
+</table>
 
 
 </div>

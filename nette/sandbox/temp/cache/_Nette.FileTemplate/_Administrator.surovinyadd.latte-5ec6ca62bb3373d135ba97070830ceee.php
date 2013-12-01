@@ -1,16 +1,16 @@
-<?php //netteCache[01]000460a:2:{s:4:"time";s:21:"0.55335000 1385220672";s:9:"callbacks";a:2:{i:0;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:137:"C:\Program Files (x86)\EasyPHP-DevServer-13.1VC11\data\localweb\projects\IIS2\nette\sandbox\app\templates\Administrator\surovinyadd.latte";i:2;i:1385220575;}i:1;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:10:"checkConst";}i:1;s:25:"Nette\Framework::REVISION";i:2;s:30:"80a7e46 released on 2013-08-08";}}}?><?php
+<?php //netteCache[01]000460a:2:{s:4:"time";s:21:"0.78295200 1385899445";s:9:"callbacks";a:2:{i:0;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:137:"C:\Program Files (x86)\EasyPHP-DevServer-13.1VC11\data\localweb\projects\IIS2\nette\sandbox\app\templates\Administrator\surovinyadd.latte";i:2;i:1385571415;}i:1;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:10:"checkConst";}i:1;s:25:"Nette\Framework::REVISION";i:2;s:30:"80a7e46 released on 2013-08-08";}}}?><?php
 
 // source file: C:\Program Files (x86)\EasyPHP-DevServer-13.1VC11\data\localweb\projects\IIS2\nette\sandbox\app\templates\Administrator\surovinyadd.latte
 
 ?><?php
 // prolog Nette\Latte\Macros\CoreMacros
-list($_l, $_g) = Nette\Latte\Macros\CoreMacros::initRuntime($template, 'jff2f09pgy')
+list($_l, $_g) = Nette\Latte\Macros\CoreMacros::initRuntime($template, '9x4r8ohzdo')
 ;
 // prolog Nette\Latte\Macros\UIMacros
 //
 // block content
 //
-if (!function_exists($_l->blocks['content'][] = '_lba0fdeb1376_content')) { function _lba0fdeb1376_content($_l, $_args) { extract($_args)
+if (!function_exists($_l->blocks['content'][] = '_lbc01ac3dcd5_content')) { function _lbc01ac3dcd5_content($_l, $_args) { extract($_args)
 ?><div class="menu">
 <ul>
 <li><a href="<?php echo htmlSpecialChars($_control->link("Administrator:objednavka")) ?>
@@ -43,6 +43,8 @@ if (!function_exists($_l->blocks['content'][] = '_lba0fdeb1376_content')) { func
 ">Mazanie užívateľov</a></li>
 <li><a href="<?php echo htmlSpecialChars($_control->link("Administrator:edituser")) ?>
 ">Editovanie užívateľov</a></li>
+<li><a href="<?php echo htmlSpecialChars($_control->link("Administrator:activateuser")) ?>
+">Aktivovanie/deaktivovanie užívateľov</a></li>
 </ul>
 
 </div>
@@ -61,17 +63,6 @@ if (!function_exists($_l->blocks['content'][] = '_lba0fdeb1376_content')) { func
 </ul>
 
 </div>
-
-
-
-
-
-
-
-
-</ul>
-</div>
-
 <div class="center">
 <h1>Zobrazenie surovín a ich pridanie zásob do skladu</h1>
 
@@ -133,6 +124,8 @@ if ($_l->extends) {
 // main template
 //
 ?>
+
+
 
 
 <?php if ($_l->extends) { ob_end_clean(); return Nette\Latte\Macros\CoreMacros::includeTemplate($_l->extends, get_defined_vars(), $template)->render(); }
