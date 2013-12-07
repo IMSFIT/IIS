@@ -87,4 +87,10 @@ INSERT INTO `user` (`id`, `username`, `password`, `name`, `id_role`, `aktivita_u
 
 
 
+
+INSERT INTO `stav` (`id_stav`, `nazov`) VALUES
+(1, 'accepted'),
+(2, 'confirmed'),
+(3, 'changed');
+
 							

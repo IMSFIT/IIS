@@ -6,18 +6,18 @@ create table IF NOT EXISTS jidelnicek(
 						primary key(id_jidelnicku),
 						datum_vystaveni varchar(20) NOT NULL,
 						platnost varchar(20) NOT NULL
-					);
+					)ENGINE = InnoDB;
 
 					create table IF NOT EXISTS  jidlo_jidelnicku(
 						id_jidelnicku int(15) NOT NULL ,
 						id_jidla int(15) NOT NULL
-					);
+					)ENGINE = InnoDB;
 
 					create table IF NOT EXISTS jidlo(
 						id_jidla int(15) NOT NULL AUTO_INCREMENT,
 						primary key(id_jidla),
 						nazev_jidla varchar(20) NOT NULL
-					);
+					)ENGINE = InnoDB;
 
 
 
@@ -25,13 +25,13 @@ create table IF NOT EXISTS jidelnicek(
 						id_diety int(15) NOT NULL AUTO_INCREMENT,
 						primary key (id_diety),
 						nazev_diety varchar(20) NOT NULL
-					);
+					)ENGINE = InnoDB;
 
 					create table IF NOT EXISTS diety_jidel(
 						id_jidla int(15) NOT NULL  ,
 						id_diety int(15) NOT NULL,
 						foreign key (id_diety) references  typ_diety(id_diety)
-					);
+					)ENGINE = InnoDB;
 
 					create table IF NOT EXISTS pacient(
 						rodne_cislo bigint(20) NOT NULL ,
@@ -45,7 +45,7 @@ create table IF NOT EXISTS jidelnicek(
 						cislo_pokoje int(11) NOT NULL,
 						jidelnicek int(15) NOT NULL,
 						foreign key (druh_diety) references  typ_diety(id_diety)
-					);
+					)ENGINE = InnoDB;
 
 					create table IF NOT EXISTS objednavka_na_kuchyn(
 						id_objednavky int(15) NOT NULL AUTO_INCREMENT,
@@ -54,19 +54,19 @@ create table IF NOT EXISTS jidelnicek(
 						preferovane_jidlo int(15) NOT NULL,
 						stav int(11) NOT NULL,
 						rc_pacienta bigint(20) NOT NULL
-					);
+					)ENGINE = InnoDB;
 
 					create table IF NOT EXISTS pokoj(
 						cislo_pokoje int(11) NOT NULL AUTO_INCREMENT,
 						primary key (cislo_pokoje),
 						patro int NOT NULL,
 						pavilon varchar(20)
-					);
+					)ENGINE = InnoDB;
 
 					create table IF NOT EXISTS jidla_a_suroviny(
 						id_jidla int(15) NOT NULL ,
 						id_surovin int(15) NOT NULL
-					);
+					)ENGINE = InnoDB;
 
 					create table IF NOT EXISTS suroviny(
 						id_suroviny int(15) NOT NULL AUTO_INCREMENT,
@@ -74,10 +74,7 @@ create table IF NOT EXISTS jidelnicek(
 						nazev_suroviny varchar(20) NOT NULL,
 						mnozstvi_surovin int NOT NULL,
 						datum_objednavky varchar(20) NOT NULL,
-						mnozstvi_objednane_suroviny int NOT NULL)
-
-
-					;
+						mnozstvi_objednane_suroviny int NOT NULL)ENGINE = InnoDB;
 
 CREATE TABLE IF NOT EXISTS user (
   id int(10) unsigned NOT NULL AUTO_INCREMENT,
@@ -87,7 +84,7 @@ CREATE TABLE IF NOT EXISTS user (
   id_role int(8) NOT NULL,
   aktivita_uctu  int(8) NOT NULL,
   PRIMARY KEY (id)
- );
+ )ENGINE = InnoDB;
 
 
 
@@ -99,7 +96,7 @@ CREATE TABLE  IF NOT EXISTS `roles` (
   
 PRIMARY KEY (`id_role`)
 
-);
+)ENGINE = InnoDB;
 
 
 
@@ -111,12 +108,26 @@ CREATE TABLE  IF NOT EXISTS `aktivita` (
 
   PRIMARY KEY (`id_aktivita`)
 
-);
+)ENGINE = InnoDB;
+
+
+CREATE TABLE IF NOT EXISTS `stav` (
+ 
+ `id_stav` int(10) NOT NULL AUTO_INCREMENT,
+
+  `nazov` varchar(20) COLLATE utf8_bin DEFAULT NULL,
+ 
+ PRIMARY KEY (`id_stav`)
+)ENGINE = InnoDB;
+
+
+
+
 
 
 					alter table objednavka_na_kuchyn add foreign key (rc_pacienta) references pacient(rodne_cislo);
 
-
+					alter table objednavka_na_kuchyn add foreign key (stav) references stav(id_stav);
 					ALTER TABLE user ADD FOREIGN KEY ( id_role ) REFERENCES roles( id_role );
 					alter table user add foreign key (aktivita_uctu) references aktivita(id_aktivita);
 					alter table jidlo_jidelnicku add foreign key (id_jidelnicku) references jidelnicek(id_jidelnicku);

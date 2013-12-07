@@ -27,7 +27,7 @@
 		Databázový subsystém
 	</dd>
 	<dt>URL aplikácie</dt>
-	<dd><a href="http://www.stud.fit.vutbr.cz/~xmagam00/IIS">http://www.stud.fit.vutbr.cz/~xmagam00/IIS</a></dd>
+	<dd><a href="http://www.stud.fit.vutbr.cz/~xmagam00/IIS/sandbox/www">http://www.stud.fit.vutbr.cz/~xmagam00/IIS/sandbox/www</a></dd>
 	
 </dl>
 
@@ -37,32 +37,34 @@
 <tr><th>Login</th><th>Heslo</th><th>Role</th></tr>
 <tr><td>admin</td><td>admin</td><td>Administrátor</td></tr>
 <tr><td>kucharka</td><td>kucharka</td><td>kucharka</td></tr>
-<tr><td>jana</td><td>jana</td><td>sestra</td></tr>
+<tr><td>sestra</td><td>sestra</td><td>sestra</td></tr>
 </table>
 
 <h2>Implementace</h2>
-<p>Pri implementácií bol použítý php framework Nette. Podľa toho sa členia skripty na prístup k databáze a "presentery", ktoré vytvárajú logiku a následne zobrazujú výsledky do šablón. Šablóny chápate v poňatí Nette ako súbory s príponou .latte, pričom jednotlivé šablóny prísluchájú istej roly podľa tabulky vyššie a prostredníctvom nich sa vykresluje obsah databáze, a zobrazujú formuláre na pridávanie a editáciu databáze. Následné sú dáta predané "presenteru" podľa role prihláseného užívateľa.</p>
+<p>Pri implementácií bol použítý php framework Nette. Tento framework sa stará o vykresľovanie, generovanie obsahu, správu sessions a iné. Podľa toho sa členia skripty na prístup k databáze a "presentery", ktoré vytvárajú logiku a následne zobrazujú výsledky do šablón. Šablóny chápate v poňatí Nette ako súbory s príponou .latte, pričom jednotlivé šablóny prísluchájú istej roly podľa tabulky vyššie a prostredníctvom nich sa vykresluje obsah databáze, a zobrazujú formuláre na pridávanie a editáciu databáze. Následné sú dáta predané "presenteru" podľa role prihláseného užívateľa.</p>
 <p>Pri implementácií boli nutné zmeny v návrhy z IDS: Potreba pridať tabuľky s užívateľmi a rolami, ktoré nám umožňujú prácu s užívateľmi. Rovnako pre užívateľov bola pridaná tabuľka aktivita, ktorá indikuje aktívneho a neaktívneho užívateľa. Pre potreby diétnej kuchyne bol pridaná tabulka suroviny, ktorá indikuje stav surovín v kuchyni a podľa toho objednávku. Následna bola pridaná možnosť doplnenia surín do skladu  a prijatie alebo zmena jedla pre objednávky podľa stavu surovín v sklade pre rolu kucharku a rola admin má možnosť spravovať každú časť systému. </p>
-<p>Prihlasovanie : je realizované pomocou skriptu SignPresenter.php , Autenticator.php. SignPresenter.php sa stará o vykreslenie prihlasovacie formuláru, vytvorenie session pre užívateľa a zavolanie funkcií, ktoré overia zadané údaje a podľa výsledku a role užívateľa rozhodne, ktorú časť stránok sprístupní(buď admin,kucharka, alebo sestra). Authenticator.php sa stará o vyhľadanie hesla v databázi užívateľaov, pričom pre vyhľadanie užívateľa využíva skript UserRepository.php, ktorá obsahuje funkciu na vyhľadané užívateľa s daným meno a vrátenie role užívateľa a hesla. Následne sa skontroluje zadané heslo s heslom databáze. Podľa výsledku buď vyhodí chybu alebo umožní užívate prihlásenie. Pri prihlásení je užívateľ identifikovaný nejakou rolou a podľa toho sú mu umožnené prístup do rôznych častí systému. Užívateľ je automaticky odhlásený po 30 sekundách nečinnosti.</p>
+<p>Prihlasovanie : je realizované pomocou skriptu SignPresenter.php , Autenticator.php. SignPresenter.php sa stará o vykreslenie prihlasovacie formuláru, vytvorenie session pre užívateľa a zavolanie funkcií, ktoré overia zadané údaje a podľa výsledku a role užívateľa rozhodne, ktorú časť stránok sprístupní(buď admin,kucharka, alebo sestra). Authenticator.php sa stará o vyhľadanie hesla v databázi užívateľaov, pričom pre vyhľadanie užívateľa využíva skript UserRepository.php, ktorá obsahuje funkciu na vyhľadané užívateľa s daným meno a vrátenie role užívateľa a hesla. Následne sa skontroluje zadané heslo s heslom databáze. Podľa výsledku buď vyhodí chybu alebo umožní užívate prihlásenie. Pri prihlásení je užívateľ identifikovaný nejakou rolou a podľa toho sú mu umožnené prístup do rôznych častí systému. Užívateľ je automaticky odhlásený po 30 sekundách nečinnosti. Pokiaľ sa užívateľ s istou rolou snaží pristúpiť k časti systému, ku ktorej podľa role nemá prístup bude presmerovaný a prístup mu nebude umožnený.</p>
 <p>admin rola: Využíva skript AdminPresenter.php. Tento skript zabezpečuje vykresľovanie formulárov prostredníctvom metód pre editáciu užívateľov, deaktívaciu/aktiváciu, zobrazenie pacientov, skladu surovín, objednávok, možnosť vykonať objednávku, editovat objednávku. Pre každý formulár existuje metóda, ktorá podľa potreby vyťahuje dáta z databáze pričom využíva skripty UserRepository.php, aby získalo dáta z tabuľky user, ObjednavkaRepository.php , aby získalo dáta pre objednávku a SurovinyRepository.php aby získalo informácie o stave skladu a objednanom tovare. Výsledky sú metód sú predávane do šablón.
 </p>
 
 <p>kucharka rola: Využíva skript KucharkaPresenter.php. Tento skript zabezpečuje vykresľovanie formulárov prostredníctvom metód pre editovanie objednávok, potvrdenie objednávok, zmenu jedla v objednávke, pridávanie jedla do skladu. Pre vytiahňutie dát z databáze, resp ich ukladanie do databáze alebo zmena hodnôt využíva skripty ObjednavkaRepository.php,SurovinyRepository.php. Náslende sú dáta predané KucharkaPresenter.php, ktorý buď vykreslí výsledok  do príslušnej šablóny alebo zavolá SurovinyRepository.php, ObjednavkaRepository.php, ktorá obsahuje funkcie pre vloženie, zmazenie alebo update obsahu tabuliek.
 </p>
 <p>sestra rola: Využíva skript SestraPresenter.php. Tento skript zabezpečuje prostredníctvom metóda vykresľovanie formulárov pre vytváranie objednávok, editáciu objednávok. Následne využíva skripty PacientRepository.php, ObjednavkaRepository.php, ktoré obsahujú metódy na editovanie, pridávanie mazanie obsahu tabuliek. Výsledné dáta sú zobrazované do šablón.</p>
-
-
+<p>Každý užívateľ si môže sám zmeniť heslo. Iba administrátor môže meniť hesla aj ostatným užívateľom.</p>
+<p>Funkcia Potvrdozvanie objednávok: Admistrátor a kucharka môžu vytvorené objednávky od sestry potvrdzovať alebo zmeniť jedlo. Zmena jedla typicky je robená vtedy pokiaľ nie je dostatok surovín v sklade(pokiaľ sa o to pokúsi nastane chyba). Vtedy bude užívateľ presmerovaný na daľší formulár, kde musí opäť vybrať objednávku podľa ID a zmeniť jedlo. Pokiaľ sa rozhodne Administrátor a alebo kucharka objednávku potvrdiť, tak ju vybereme a zmení stav na confirmed. Tým sa zmení stav objednávky. Pri každom potvrdení objednávky sa zníži počet položiek v sklade a automaticky sa prevedie objednávka u dodávateľa.</p>
+<p>Funkcia doplnenie surovín: Pokiaľ dôjde k vyčerpaniu surovín na sklade a prídu suroviny od dodávateľa, tak dodáveteľ prinesie všetky objednnaé suroviny(počet) a kucharka potvrdí prevzatie a zmení stav skladu.</p>
 
 <h2>Instalace</h2>
 <ul>
 
 <li>Aplikácia požaduje pre svoj beh aplikačný server,napr apache vo verzii 2.4.X alebo vyššiu verziu. Nainštalované php vo verzii 5, kvôli podpore všetkých vlastností aplikácie. Aplikácia ďalej potrebuje databázový server MySQL vo verzii 5.5 alebo vyššej. 
 <li>Pre správny beh je potrebné prideliť prístup pre súbory php na zapisovanie,čítanie, vykonávanie(na unixe príkazom chmod 0777 nazov_suboru)a pre priečinky oprávnenie na čítanie a zápis(na unixe:chmod 0664 nazov_priečinku).</li>
-<li> Pre správny chod databáze je potrebné mať vytvoreného užívateľa root bez hesla. Následne je potrebné vytvoriť databázu s názvom "kuchyna" a vytvoriť v nej tabuľky pomocou skriptu createtable.sql. A následne ju treba naplniť pomocou skriptu insert.sql. Následne by mala aplikácie fungovať.</li>
+<li>Ďalej je treba editovať súbor .htaccess v sandbox/www a pridať mod_rewrite.</li>
+<li> Pre správny chod databáze je potrebné mať vytvoreného užívateľa root bez hesla. Následne je potrebné vytvoriť databázu s názvom "kuchyna" a vytvoriť v nej tabuľky pomocou skriptu createtable.sql. A následne ju treba naplniť pomocou skriptu insert.sql. Následne by mala aplikácie fungovať. A je potrebné v prehliadači zadať cestu sandbox/www/ a budete presmerovaný na prihlasovanie.</li>
 </ul>
 
 <h2>Známé problémy</h2>
-<p>Jednotlivé formuláre nie su dokonalé premyslené a pri vybratí nejakej objednávky,užívateľa,.. sa nenaplnia hodnoty formuláru ale je nutné ich ručne zvoliť.</p>
+<p>Jednotlivé formuláre nie su dokonalé premyslené a pri vybratí nejakej objednávky,užívateľa,.. sa nenaplnia hodnoty formuláru ale je nutné ich ručne zvoliť Všetky položky sú braté ako povinné. Niektoré tabuľky sú rozdelené na 2 časti, keďže obsahujú veľký počet položiek, ktorý sa obtiažne zmestí na obrazovku. Systém predpokladá, že pacienti sú pridávaný inou časťou systému.</p>
 
 </body>
 </html>
